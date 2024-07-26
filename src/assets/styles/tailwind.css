@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+
+#app {
+  @apply min-h-screen;
+}
+
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: 'Noto Serif TC';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('../fonts/NotoSerifTC-Regular.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Noto Serif TC';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('../fonts/NotoSerifTC-Bold.ttf') format('truetype');
+  }
+
+  body {
+    /* @apply min-h-screen; */
+    font-family: 'Noto Serif TC', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+    font-weight: 400;
+  }
+}
