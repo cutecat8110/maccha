@@ -4,10 +4,10 @@ export default {
   theme: {
     extend: {
       screens: {
-        sm: '576px',
-        md: '768px',
+        sm: '576px', // 手機板
+        md: '768px', // > 平板
         lg: '992px',
-        xl: '1200px',
+        xl: '1200px', // > 電腦板
         '2xl': '1400px'
       },
       container: {

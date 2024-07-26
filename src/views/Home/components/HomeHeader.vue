@@ -1,7 +1,7 @@
 <template>
-  <header class="text-white bg-system-dark">
+  <header class="text-white">
     <div class="container">
-      <SectionDesc text="header" />
+      <SectionDesc text="header" center />
     </div>
   </header>
 </template>
