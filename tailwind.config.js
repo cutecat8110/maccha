@@ -102,7 +102,9 @@ export default {
             letterSpacing: '0.02em',
             fontWeight: '400'
           }
-        ]
+        ],
+        icon: '1.5rem',
+        'icon-2': '1.25rem'
       },
       colors: {
         system: {

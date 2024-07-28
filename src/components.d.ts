@@ -7,20 +7,33 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    copy: typeof import('./components/svg/SvgCart copy.vue')['default']
     HelloWorld: typeof import('./components/HelloWorld.vue')['default']
     HomeView: typeof import('./components/HomeView.vue')['default']
     IconCommunity: typeof import('./components/icons/IconCommunity.vue')['default']
     IconDocumentation: typeof import('./components/icons/IconDocumentation.vue')['default']
     IconEcosystem: typeof import('./components/icons/IconEcosystem.vue')['default']
+    IconLogo: typeof import('./components/svg/SvgLogo.vue')['default']
     IconSupport: typeof import('./components/icons/IconSupport.vue')['default']
     IconTooling: typeof import('./components/icons/IconTooling.vue')['default']
+    Logo: typeof import('./components/icons/IconLogo.vue')['default']
+    LOGO: typeof import('./components/icons/IconLogo.vue')['default']
     PageDesc: typeof import('./components/SectionDesc.vue')['default']
     PageFooter: typeof import('./components/page/PageFooter.vue')['default']
     PageInfo: typeof import('./components/page/PageInfo.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SectionDesc: typeof import('./components/SectionDesc.vue')['default']
+    SvgArrow: typeof import('./components/svg/SvgArrow.vue')['default']
+    SvgCart: typeof import('./components/svg/SvgCart.vue')['default']
+    SvgFacebook: typeof import('./components/svg/SvgFacebook.vue')['default']
+    SvgInstagram: typeof import('./components/svg/SvgInstagram.vue')['default']
+    SvgLogo: typeof import('./components/svg/SvgLogo.vue')['default']
+    SvgMail: typeof import('./components/svg/SvgMail.vue')['default']
+    SvgMenu: typeof import('./components/svg/SvgMenu.vue')['default']
+    SvgTwitter: typeof import('./components/svg/SvgTwitter.vue')['default']
     TheWelcome: typeof import('./components/TheWelcome.vue')['default']
+    UiButton: typeof import('./components/ui/UiButton.vue')['default']
     WelcomeItem: typeof import('./components/WelcomeItem.vue')['default']
   }
 }

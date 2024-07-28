@@ -1,5 +1,5 @@
 <template>
-  <HomeHeader class="fixed w-full" />
+  <HomeHeader class="fixed inset-x-0 top-0" />
   <main class="flex-1 bg-system-light">
     <Hero />
 
@@ -13,7 +13,7 @@
 
     <Access />
   </main>
-  <PageFooter class="overflow-hidden" />
+  <PageFooter />
 </template>
 
 <script setup lang="ts">

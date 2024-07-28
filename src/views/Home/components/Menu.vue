@@ -1,5 +1,5 @@
 <template>
-  <section class="section bg-system-light min-h-screen">
+  <section class="common-section-padding bg-system-light min-h-screen">
     <div class="container">
       <SectionDesc text="Menu" center />
     </div>

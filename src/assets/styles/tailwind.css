@@ -2,7 +2,7 @@
 @tailwind components;
 
 #app {
-  @apply min-h-screen;
+  @apply min-h-screen w-full overflow-x-hidden;
 }
 
 @tailwind utilities;
@@ -32,7 +32,13 @@
 }
 
 @layer components {
-  .section {
+  .common-section-padding {
     @apply py-20 xl:py-[12.5rem];
+  }
+  .svg-base {
+    height: 1em;
+  }
+  .icon-base {
+    @apply text-icon-2 md:text-icon;
   }
 }
