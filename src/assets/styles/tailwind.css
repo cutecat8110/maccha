@@ -24,6 +24,10 @@
     src: url('../fonts/NotoSerifTC-Bold.ttf') format('truetype');
   }
 
+  html {
+    @apply scroll-smooth;
+  }
+
   body {
     /* @apply min-h-screen; */
     font-family: 'Noto Serif TC', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
@@ -38,10 +42,12 @@
   .svg-base {
     height: 1em;
   }
+
   .icon-base {
     @apply text-icon-2 md:text-icon;
   }
-  .icon-link-base {
-    @apply h-10 w-10 inline-flex items-center justify-center rounded-full   hover:bg-white/30 transition-colors;
+
+  .link-base {
+    @apply transition-opacity duration-500 hover:opacity-75;
   }
 }

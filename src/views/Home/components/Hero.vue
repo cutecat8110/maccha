@@ -6,7 +6,7 @@
 
 <style lang="scss" scoped>
 .hero-wrapper {
-  @apply bg-system-gray-600 h-screen;
+  @apply h-screen bg-system-gray-600;
   background-image: url('/img/hero.jpg');
   background-position: center;
   background-size: cover;

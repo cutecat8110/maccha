@@ -1,17 +1,17 @@
 <template>
   <HomeHeader class="fixed inset-x-0 top-0" />
   <main class="flex-1 bg-system-light">
-    <Hero />
+    <Hero id="hero" />
 
-    <Story />
+    <Story id="story" />
 
-    <Enjoy />
+    <Enjoy id="enjoy" />
 
-    <News />
+    <News id="news" />
 
-    <Menu />
+    <Menu id="menu" />
 
-    <Access />
+    <Access id="access" />
   </main>
   <PageFooter />
 </template>

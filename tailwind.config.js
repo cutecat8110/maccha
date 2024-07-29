@@ -104,14 +104,16 @@ export default {
           }
         ],
         icon: '1.5rem',
-        'icon-2': '1.25rem'
+        'icon-2': '1.25rem',
+        logo: '4rem',
+        'logo-2': '2rem'
       },
       colors: {
         system: {
           main: {
             800: '#504312',
             600: '#816C1D',
-            400: '#504312',
+            400: '#A99545',
             200: '#CABD8C',
             50: '#E2DCC1'
           },

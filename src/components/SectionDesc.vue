@@ -1,5 +1,5 @@
 <template>
-  <h2 :class="[props.center && 'text-center', 'capitalize text-h2']">{{ props.text }}</h2>
+  <h2 :class="[props.center && 'text-center', 'text-h2 capitalize']">{{ props.text }}</h2>
 </template>
 
 <script setup lang="ts">
