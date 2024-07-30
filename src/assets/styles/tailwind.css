@@ -36,6 +36,15 @@
 }
 
 @layer components {
+  .text-vrl .lg\:text-h4 {
+    line-height: 1;
+    letter-spacing: 0.2em;
+  }
+  .text-vrl .lg\:text-body {
+    line-height: 1;
+    letter-spacing: 0.5em;
+  }
+
   .common-section-padding {
     @apply py-20 xl:py-[12.5rem];
   }
@@ -49,5 +58,17 @@
 
   .link-base {
     @apply transition-opacity duration-500 hover:opacity-75;
+  }
+}
+
+@layer utilities {
+  .text-vlr {
+    -webkit-writing-mode: vertical-lr;
+    writing-mode: vertical-lr;
+  }
+
+  .text-vrl {
+    -webkit-writing-mode: vertical-rl;
+    writing-mode: vertical-rl;
   }
 }

@@ -14,7 +14,7 @@
           class="absolute bottom-10 right-[3.25rem] flex origin-bottom-right rotate-90 items-center gap-4 text-body-2 uppercase leading-10"
         >
           scroll
-          <div class="scroll-line"></div>
+          <span class="scroll-line"></span>
         </div>
       </div>
     </div>

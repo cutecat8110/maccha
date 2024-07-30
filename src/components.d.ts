@@ -12,6 +12,8 @@ declare module 'vue' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SectionDesc: typeof import('./components/SectionDesc.vue')['default']
+    SectionIndicator: typeof import('./components/SectionIndicator.vue')['default']
+    SeIndicator: typeof import('./components/SeIndicator.vue')['default']
     SvgArrow: typeof import('./components/svg/SvgArrow.vue')['default']
     SvgCart: typeof import('./components/svg/SvgCart.vue')['default']
     SvgClose: typeof import('./components/svg/SvgClose.vue')['default']
