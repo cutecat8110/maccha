@@ -105,6 +105,7 @@ export default {
         ],
         icon: '1.5rem',
         'icon-2': '1.25rem',
+        'icon-close': '1.75rem',
         logo: '4rem',
         'logo-2': '2rem'
       },

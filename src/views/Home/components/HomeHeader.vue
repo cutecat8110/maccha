@@ -2,11 +2,11 @@
   <header :class="['header', isDark && 'is-dark']">
     <div class="container relative flex items-center justify-between py-3 lg:py-5">
       <!-- LOGO．連結．首頁 -->
-      <router-link class="link-base" to="/">
+      <router-link class="link-base" to="/" @click="refreshPage">
         <SvgLogo class="text-icon lg:text-logo-2" />
       </router-link>
 
-      <!-- 導航欄 -->
+      <!-- desktop．導航欄 -->
       <nav class="hidden gap-x-2 lg:flex">
         <UiButton
           :class="[activeSection === 'story' && 'active']"
@@ -63,15 +63,105 @@
           </UiButton>
         </router-link>
       </nav>
-      <UiButton class="link-base lg:hidden" state="icon">
+
+      <!-- mobile．導航欄 -->
+      <UiButton class="link-base lg:hidden" state="icon" @click="toggleMenu(true)">
         <SvgMenu />
       </UiButton>
+
+      <UiModal v-model="isMenuOpen">
+        <div class="relative flex h-full items-center text-white">
+          <UiButton
+            class="link-base absolute right-4 top-4"
+            state="icon"
+            @click="toggleMenu(false)"
+          >
+            <SvgClose class="text-icon-close" />
+          </UiButton>
+
+          <div class="container flex flex-col items-center gap-6">
+            <nav class="flex flex-col gap-2">
+              <UiButton
+                :class="[activeSection === 'story' && 'active']"
+                class="menu-btn"
+                href="#story"
+                tag="a"
+                @click="toggleMenu(false)"
+              >
+                story
+              </UiButton>
+
+              <UiButton
+                :class="[activeSection === 'enjoy' && 'active']"
+                class="menu-btn"
+                href="#enjoy"
+                tag="a"
+                @click="toggleMenu(false)"
+              >
+                enjoy
+              </UiButton>
+
+              <UiButton
+                :class="[activeSection === 'news' && 'active']"
+                class="menu-btn"
+                href="#news"
+                tag="a"
+                @click="toggleMenu(false)"
+              >
+                news
+              </UiButton>
+
+              <UiButton
+                :class="[activeSection === 'menu' && 'active']"
+                class="menu-btn"
+                href="#menu"
+                tag="a"
+                @click="toggleMenu(false)"
+              >
+                menu
+              </UiButton>
+
+              <UiButton
+                :class="[activeSection === 'access' && 'active']"
+                class="menu-btn"
+                href="#access"
+                tag="a"
+                @click="toggleMenu(false)"
+              >
+                access
+              </UiButton>
+            </nav>
+
+            <!-- 連結．線上商店 -->
+            <router-link to="/" @click="toggleMenu(false)">
+              <UiButton state="outline" tag="span">
+                online shop
+                <template #trailing>
+                  <SvgCart />
+                </template>
+              </UiButton>
+            </router-link>
+          </div>
+        </div>
+      </UiModal>
     </div>
   </header>
 </template>
 
 <script lang="ts" setup>
 import { useIntersectionObserver, useWindowScroll } from '@vueuse/core'
+
+/* Logo 刷新 */
+const route = useRoute()
+const router = useRouter()
+const refreshPage = (event: MouseEvent) => {
+  if (route.path === '/') {
+    // 禁止默認行為
+    event.preventDefault()
+    // 刷新頁面
+    router.go(0)
+  }
+}
 
 /* 滾輪進入區塊 */
 const activeSection = ref('')
@@ -94,6 +184,12 @@ onMounted(() => {
 /* header 背景 */
 const { y } = useWindowScroll()
 const isDark = computed(() => y.value > window.innerHeight / 5)
+
+/* menu */
+const isMenuOpen = ref(false)
+const toggleMenu = (event: boolean) => {
+  isMenuOpen.value = event
+}
 </script>
 
 <style lang="scss" scoped>

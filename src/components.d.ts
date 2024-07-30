@@ -7,13 +7,14 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    copy: typeof import('./components/svg/SvgArrow copy.vue')['default']
+    copy: typeof import('./components/svg/SvgCart copy.vue')['default']
     PageFooter: typeof import('./components/page/PageFooter.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SectionDesc: typeof import('./components/SectionDesc.vue')['default']
     SvgArrow: typeof import('./components/svg/SvgArrow.vue')['default']
     SvgCart: typeof import('./components/svg/SvgCart.vue')['default']
+    SvgClose: typeof import('./components/svg/SvgClose.vue')['default']
     SvgFacebook: typeof import('./components/svg/SvgFacebook.vue')['default']
     SvgGithub: typeof import('./components/svg/SvgGithub.vue')['default']
     SvgInstagram: typeof import('./components/svg/SvgInstagram.vue')['default']
@@ -22,5 +23,6 @@ declare module 'vue' {
     SvgMenu: typeof import('./components/svg/SvgMenu.vue')['default']
     SvgTwitter: typeof import('./components/svg/SvgTwitter.vue')['default']
     UiButton: typeof import('./components/ui/UiButton.vue')['default']
+    UiModal: typeof import('./components/ui/UiModal.vue')['default']
   }
 }

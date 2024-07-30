@@ -3,7 +3,7 @@
     <div class="container flex flex-col gap-y-10 lg:flex-row lg:justify-between">
       <div class="flex flex-col items-center gap-y-10 lg:items-start">
         <!-- LOGO．連結．首頁 -->
-        <router-link to="/" class="link-base">
+        <router-link class="link-base" to="/" @click="refreshPage">
           <SvgLogo class="text-logo-2 lg:text-logo" />
         </router-link>
 
@@ -24,38 +24,38 @@
         <!-- 社群導航 -->
         <nav class="flex gap-6 text-icon">
           <UiButton
-            tag="a"
-            state="icon"
-            href="https://www.facebook.com/cutecat8110"
-            target="_blank"
             class="link-base"
+            href="https://www.facebook.com/cutecat8110"
+            state="icon"
+            tag="a"
+            target="_blank"
           >
             <SvgFacebook />
           </UiButton>
           <UiButton
-            tag="a"
-            state="icon"
-            href="https://instagram.com/cutecat8110"
-            target="_blank"
             class="link-base"
+            href="https://instagram.com/cutecat8110"
+            state="icon"
+            tag="a"
+            target="_blank"
           >
             <SvgInstagram />
           </UiButton>
           <UiButton
-            tag="a"
-            state="icon"
-            href="https://x.com/cutecat8110"
-            target="_blank"
             class="link-base"
+            href="https://x.com/cutecat8110"
+            state="icon"
+            tag="a"
+            target="_blank"
           >
             <SvgTwitter />
           </UiButton>
           <UiButton
-            tag="a"
-            state="icon"
-            href="https://github.com/cutecat8110/matcha"
-            target="_blank"
             class="link-base"
+            href="https://github.com/cutecat8110/matcha"
+            state="icon"
+            tag="a"
+            target="_blank"
           >
             <SvgGithub />
           </UiButton>
@@ -68,6 +68,20 @@
     </div>
   </footer>
 </template>
+
+<script lang="ts" setup>
+/* Logo 刷新 */
+const route = useRoute()
+const router = useRouter()
+const refreshPage = (event: MouseEvent) => {
+  if (route.path === '/') {
+    // 禁止默認行為
+    event.preventDefault()
+    // 刷新頁面
+    router.go(0)
+  }
+}
+</script>
 
 <style lang="scss" scoped>
 .footer {
