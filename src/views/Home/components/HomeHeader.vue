@@ -2,56 +2,60 @@
   <header :class="['header', isDark && 'is-dark']">
     <div class="container relative flex items-center justify-between py-3 lg:py-5">
       <!-- LOGO．連結．首頁 -->
-      <router-link to="/" class="link-base">
+      <router-link class="link-base" to="/">
         <SvgLogo class="text-icon lg:text-logo-2" />
       </router-link>
 
       <!-- 導航欄 -->
       <nav class="hidden gap-x-2 lg:flex">
         <UiButton
-          tag="a"
-          href="#story"
-          class="menu-btn"
           :class="[activeSection === 'story' && 'active']"
+          class="menu-btn"
+          href="#story"
+          tag="a"
         >
           story
         </UiButton>
+
         <UiButton
-          tag="a"
-          href="#enjoy"
-          class="menu-btn"
           :class="[activeSection === 'enjoy' && 'active']"
+          class="menu-btn"
+          href="#enjoy"
+          tag="a"
         >
           enjoy
         </UiButton>
+
         <UiButton
-          tag="a"
-          href="#news"
-          class="menu-btn"
           :class="[activeSection === 'news' && 'active']"
+          class="menu-btn"
+          href="#news"
+          tag="a"
         >
           news
         </UiButton>
+
         <UiButton
-          tag="a"
-          href="#menu"
-          class="menu-btn"
           :class="[activeSection === 'menu' && 'active']"
+          class="menu-btn"
+          href="#menu"
+          tag="a"
         >
           menu
         </UiButton>
+
         <UiButton
-          tag="a"
-          href="#access"
-          class="menu-btn"
           :class="[activeSection === 'access' && 'active']"
+          class="menu-btn"
+          href="#access"
+          tag="a"
         >
           access
         </UiButton>
 
         <!-- 連結．線上商店 -->
-        <router-link to="/" class="link-base">
-          <UiButton tag="span" href="#access" class="">
+        <router-link class="link-base" to="/">
+          <UiButton class="" href="#access" tag="span">
             <template #leading>
               <SvgCart />
             </template>
@@ -59,16 +63,15 @@
           </UiButton>
         </router-link>
       </nav>
-      <UiButton state="icon" class="link-base lg:hidden">
+      <UiButton class="link-base lg:hidden" state="icon">
         <SvgMenu />
       </UiButton>
     </div>
   </header>
 </template>
 
-<script setup lang="ts">
-import { useIntersectionObserver } from '@vueuse/core'
-import { useWindowScroll } from '@vueuse/core'
+<script lang="ts" setup>
+import { useIntersectionObserver, useWindowScroll } from '@vueuse/core'
 
 /* 滾輪進入區塊 */
 const activeSection = ref('')
@@ -90,7 +93,7 @@ onMounted(() => {
 
 /* header 背景 */
 const { y } = useWindowScroll()
-const isDark = computed(() => y.value > window.innerHeight)
+const isDark = computed(() => y.value > window.innerHeight / 5)
 </script>
 
 <style lang="scss" scoped>
@@ -99,7 +102,7 @@ const isDark = computed(() => y.value > window.innerHeight)
 
   &::before {
     content: '';
-    @apply absolute inset-0 opacity-0 transition-all duration-500;
+    @apply absolute inset-0 opacity-0 backdrop-blur-xl transition-all duration-500;
   }
 
   &.header.is-dark::before {
@@ -118,7 +121,7 @@ const isDark = computed(() => y.value > window.innerHeight)
     content: '';
     width: 0.25rem;
     height: 0.25rem;
-    @apply absolute bottom-0 h-1 w-1 rounded-full bg-system-main-400 backdrop-blur-xl transition-all duration-500;
+    @apply absolute bottom-0 h-1 w-1 rounded-full bg-system-main-400 transition-all duration-500;
   }
 }
 </style>
