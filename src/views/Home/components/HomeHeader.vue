@@ -149,7 +149,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useIntersectionObserver, useWindowScroll } from '@vueuse/core'
+import { useWindowScroll } from '@vueuse/core'
 
 /* Logo 刷新 */
 const route = useRoute()
@@ -165,20 +165,23 @@ const refreshPage = (event: MouseEvent) => {
 
 /* 滾輪進入區塊 */
 const activeSection = ref('')
+const sectionIds = ['hero', 'story', 'enjoy', 'news', 'menu', 'access', 'footer']
+const onScroll = () => {
+  let scrollPosition = window.scrollY + 200
+  for (let i = sectionIds.length - 1; i >= 0; i--) {
+    let section = document.getElementById(sectionIds[i])
+    if (section && scrollPosition >= section.offsetTop) {
+      activeSection.value = sectionIds[i]
+      break
+    }
+  }
+}
 onMounted(() => {
-  const sections = document.querySelectorAll('section')
-
-  sections.forEach((section) => {
-    useIntersectionObserver(
-      section,
-      ([{ isIntersecting }]) => {
-        if (isIntersecting) {
-          activeSection.value = section.id
-        }
-      },
-      { threshold: 0.5 }
-    )
-  })
+  window.addEventListener('scroll', onScroll)
+  onScroll()
+})
+onUnmounted(() => {
+  window.removeEventListener('scroll', onScroll)
 })
 
 /* header 背景 */

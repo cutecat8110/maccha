@@ -13,7 +13,7 @@
 
     <Access id="access" />
   </main>
-  <PageFooter />
+  <PageFooter id="footer" />
 </template>
 
 <script lang="ts" setup>
