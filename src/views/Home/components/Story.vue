@@ -1,6 +1,6 @@
 <template>
   <section class="story-wrapper space-y-20 lg:space-y-[12.5rem]">
-    <div class="container space-y-10 lg:space-y-20">
+    <div class="container relative space-y-10 lg:space-y-20">
       <!-- 標題 -->
       <div class="space-y-2 text-center">
         <h2 class="text-h2 uppercase">maccha</h2>
@@ -53,15 +53,45 @@
       </div>
     </div>
 
-    <div>
-      <h4>
-        雖然不為人所熟知，<br />
-        但抹茶對身心有著眾多益處。
-      </h4>
+    <!-- 間隔區塊 -->
+    <div class="flex justify-evenly">
+      <!-- 背景裝飾: 網狀 -->
+      <div class="relative">
+        <img
+          class="absolute top-1/2 z-0 max-w-[50vw] -translate-x-1/2 -translate-y-1/2"
+          src="/img/decoration.png"
+          alt=""
+        />
+      </div>
 
-      <ul>
-        <li></li>
-      </ul>
+      <!-- 功效介紹 -->
+      <div
+        class="flex flex-col items-center gap-10 border border-white/30 p-10 md:flex-row lg:gap-20 lg:p-20"
+      >
+        <h4 class="space-y-4 text-center text-title md:text-start lg:text-h6">
+          <div>雖然不為人所熟知，</div>
+          <div>但抹茶對身心有著眾多益處。</div>
+        </h4>
+
+        <ul class="text-vlr benefits-wrapper">
+          <li>減輕壓力</li>
+          <li>放鬆身心</li>
+          <li>抗衰老</li>
+          <li>幫助減肥</li>
+          <li>增強專注力</li>
+          <li>抗氧化作用</li>
+          <li>預防癌症</li>
+        </ul>
+      </div>
+
+      <!-- 背景裝飾: 網狀 -->
+      <div class="relative">
+        <img
+          class="absolute top-1/2 z-0 max-w-[50vw] -translate-x-1/2 -translate-y-1/2"
+          src="/img/decoration.png"
+          alt=""
+        />
+      </div>
     </div>
   </section>
 </template>
@@ -101,5 +131,24 @@
 
 .story-text {
   @apply text-body-2 leading-6 text-system-gray-50 lg:text-body lg:leading-8;
+}
+
+.benefits-wrapper {
+  @apply text-body-2 lg:text-body;
+
+  &.text-vlr {
+    @apply leading-10 tracking-[.5em];
+  }
+
+  * {
+    @apply flex items-center gap-2;
+    &::before {
+      @apply bg-gradient-to-b from-white/0 to-white/80;
+      display: block;
+      content: '';
+      width: 1px;
+      height: 1rem;
+    }
+  }
 }
 </style>

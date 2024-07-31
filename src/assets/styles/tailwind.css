@@ -37,7 +37,7 @@
 
 @layer components {
   .common-section-padding {
-    @apply py-20 xl:py-[12.5rem];
+    @apply py-20 lg:py-[12.5rem];
   }
   .svg-base {
     height: 1em;
