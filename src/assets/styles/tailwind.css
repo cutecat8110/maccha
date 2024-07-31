@@ -36,15 +36,6 @@
 }
 
 @layer components {
-  .text-vrl .lg\:text-h4 {
-    line-height: 1;
-    letter-spacing: 0.2em;
-  }
-  .text-vrl .lg\:text-body {
-    line-height: 1;
-    letter-spacing: 0.5em;
-  }
-
   .common-section-padding {
     @apply py-20 xl:py-[12.5rem];
   }
