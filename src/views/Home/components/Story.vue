@@ -107,12 +107,21 @@
 
             <!-- 文字 -->
             <div class="story-text-wrapper md:text-vrl md:text-nowrap">
-              <h4 class="story-sub-title">100% 宇治單一產地抹茶</h4>
+              <h4 class="story-sub-title">
+                <span class="text-tb md:leading-[1.2] md:tracking-normal"> 1</span>
+                <span class="text-tb md:leading-[1.2] md:tracking-normal"> 0</span>
+                <span class="text-tb md:leading-[1.2] md:tracking-normal"> 0</span>
+                <span class="text-tb md:leading-[1.2] md:tracking-normal"> %</span>
+                宇治單一產地抹茶
+              </h4>
 
               <p class="story-text">無混合，可品味不同品種的單一產地抹茶。</p>
 
               <p class="story-text">
-                延續超過 400 年的本簀栽培和手摘一番茶，<br />
+                延續超過 <span class="text-tb md:leading-[1.5] md:tracking-normal">4</span>
+                <span class="text-tb md:leading-[1.5] md:tracking-normal">0</span>
+                <span class="text-tb md:leading-[1.5] md:tracking-normal">0</span>
+                年的本簀栽培和手摘一番茶，<br />
                 產量非常稀少。
               </p>
 
