@@ -2,8 +2,8 @@
   <section class="story-wrapper">
     <!-- 標題 -->
     <div class="space-y-2 text-center">
-      <h2 class="text-h2 uppercase">maccha</h2>
-      <p class="text-h6 capitalize text-system-main-400">story</p>
+      <h2 class="text-h4 uppercase lg:text-h2">maccha</h2>
+      <p class="text-title capitalize text-system-main-400 lg:text-h6">story</p>
     </div>
 
     <div class="space-y-20 lg:space-y-[12.5rem]">
@@ -16,7 +16,7 @@
           <!-- 內容組合 1 -->
           <article class="story-content">
             <!-- 圖片 -->
-            <div class="story-img-wrapper md:order-last">
+            <div class="aspect-square md:order-last">
               <img class="story-img" src="/img/story01.jpg" alt="抹茶粉、竹製刷子和抹茶茶碗" />
             </div>
 
@@ -34,7 +34,7 @@
           <!-- 內容組合 2 -->
           <article class="story-content">
             <!-- 圖片 -->
-            <div class="story-img-wrapper">
+            <div class="aspect-square">
               <img class="story-img" src="/img/story02.jpg" alt="一盤抹茶粉、盛滿抹茶粉的湯杓" />
             </div>
 
@@ -101,7 +101,7 @@
           <!-- 內容組合 3 -->
           <article class="story-content">
             <!-- 圖片 -->
-            <div class="story-img-wrapper">
+            <div class="aspect-square">
               <img class="story-img" src="/img/story03.jpg" alt="抹茶茶園" />
             </div>
 
@@ -135,7 +135,7 @@
           <!-- 內容組合 4 -->
           <article class="story-content">
             <!-- 圖片 -->
-            <div class="story-img-wrapper md:order-last">
+            <div class="aspect-square md:order-last">
               <img class="story-img" src="/img/story04.jpg" alt="抹茶茶園" />
             </div>
 

@@ -1,12 +1,15 @@
 <template>
   <Transition name="scroll-top">
-    <div v-if="scrollTopIsShow" class="pointer-events-none fixed bottom-3 w-full lg:bottom-5">
-      <div class="flex flex-row-reverse pr-3 2xl:container lg:pr-5 2xl:pr-0">
-        <UiButton class="ui-scroll-top 2xl:translate-x-10" state="icon" @click="scrollTop()">
-          <SvgKeyboardArrowUp />
-        </UiButton>
-      </div>
-    </div>
+    <UiButton
+      v-if="scrollTopIsShow"
+      class="ui-scroll-top fixed bottom-3 right-3 md:bottom-6 md:right-6
+      
+       2xl:bottom-10 2xl:right-10"
+      state="icon"
+      @click="scrollTop()"
+    >
+      <SvgKeyboardArrowUp />
+    </UiButton>
   </Transition>
 </template>
 
