@@ -7,15 +7,12 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    copy: typeof import('./components/svg/SvgArrow copy.vue')['default']
     PageFooter: typeof import('./components/page/PageFooter.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SectionDesc: typeof import('./components/SectionDesc.vue')['default']
     SectionIndicator: typeof import('./components/SectionIndicator.vue')['default']
-    SeIndicator: typeof import('./components/SeIndicator.vue')['default']
     SvgArrow: typeof import('./components/svg/SvgArrow.vue')['default']
-    SvgArrowUp: typeof import('./components/svg/SvgArrowUp.vue')['default']
     SvgCart: typeof import('./components/svg/SvgCart.vue')['default']
     SvgClose: typeof import('./components/svg/SvgClose.vue')['default']
     SvgFacebook: typeof import('./components/svg/SvgFacebook.vue')['default']

@@ -1,5 +1,6 @@
 import 'swiper/css'
 import 'swiper/css/effect-fade'
+import 'swiper/css/pagination';
 import './assets/styles/tailwind.css'
 
 import { createPinia } from 'pinia'

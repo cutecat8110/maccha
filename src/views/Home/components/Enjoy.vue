@@ -1,10 +1,8 @@
 <template>
   <section class="common-section-padding bg-system-light">
-    <div class="container grid grid-cols-12 gap-x-10 gap-y-10">
+    <div class="container flex flex-col gap-x-10 gap-y-10 md:grid md:grid-cols-12">
       <!-- 標題 -->
-      <div
-        class="col-span-12 flex flex-col items-center gap-y-6 md:col-span-3 md:gap-y-10 md:p-10 md:pb-20"
-      >
+      <div class="flex flex-col items-center gap-y-6 md:col-span-3 md:gap-y-10 md:p-10 md:pb-20">
         <div class="flex flex-col items-center gap-y-6 space-y-2 md:gap-y-10">
           <h2 class="text-vlr text-h4 leading-none tracking-[.2em] text-system-main-600 lg:text-h2">
             極享
@@ -19,41 +17,27 @@
         </p>
       </div>
 
-      <div class="col-span-12 flex flex-col gap-y-6 md:col-span-9 md:gap-y-10">
-        <div class="flex flex-1 flex-col gap-y-4 md:gap-y-6">
-          <Swiper
-            class="w-full flex-1"
-            :autoplay="{
-              delay: 5000
-            }"
-            :effect="'fade'"
-            :loop="true"
-            :modules="[Autoplay, EffectFade]"
-            @slideChange="onSlideChange"
-            @swiper="onSwiper"
-          >
-            <SwiperSlide v-for="(enjoy, index) in enjoyList" :key="index">
-              <img :src="enjoy.src" :alt="enjoy.alt" />
-            </SwiperSlide>
-          </Swiper>
+      <div class="flex flex-col gap-y-6 md:col-span-9 lg:gap-y-10">
+        <Swiper
+          class="w-full flex-1"
+          :autoplay="{
+            delay: 5000
+          }"
+          :effect="'fade'"
+          :loop="true"
+          :modules="[Autoplay, EffectFade, Pagination]"
+          :pagination="{ clickable: true }"
+          @slideChange="onSlideChange"
+          @swiper="onSwiper"
+        >
+          <SwiperSlide v-for="(enjoy, index) in enjoyList" :key="index">
+            <img :src="enjoy.src" :alt="enjoy.alt" />
+          </SwiperSlide>
+        </Swiper>
 
-          <nav>
-            <ul class="flex gap-x-2">
-              <li
-                v-for="(enjoy, index) in enjoyList"
-                :key="index"
-                :class="[
-                  'h-1 flex-1 cursor-pointer transition-colors duration-500 md:w-20 md:flex-none',
-                  currentIndex == index ? 'bg-system-gray-400' : 'bg-system-gray-50'
-                ]"
-                @click="goToSlide(index)"
-              ></li>
-            </ul>
-          </nav>
-        </div>
-        <div class="line-clamp-2 flex h-12 gap-6 text-title lg:text-h6">
+        <div class="flex gap-4 text-title md:h-12 lg:gap-6 lg:text-h6">
           <p>{{ `0${currentIndex + 1}.` }}</p>
-          <p>
+          <p class="lg:line-clamp-2">
             {{ enjoyList[currentIndex].caption }}
           </p>
         </div>
@@ -63,7 +47,7 @@
 </template>
 
 <script lang="ts" setup>
-import { Autoplay, EffectFade } from 'swiper/modules'
+import { Autoplay, EffectFade, Pagination } from 'swiper/modules'
 const enjoyList = ref([
   {
     src: '/img/enjoy01.jpg',
@@ -105,6 +89,24 @@ const goToSlide = (index: number) => {
 </script>
 
 <style lang="scss" scoped>
+:deep(.swiper) {
+  @apply flex flex-col gap-y-4 lg:gap-y-6;
+}
+
+:deep(.swiper-wrapper) {
+  @apply flex-1;
+}
+
+:deep(.swiper-pagination) {
+  @apply static flex gap-x-2;
+  .swiper-pagination-bullet {
+    @apply h-1 flex-1 cursor-pointer rounded-none bg-system-gray-50 opacity-100 transition-colors duration-500 md:w-20 md:flex-none;
+    &.swiper-pagination-bullet-active {
+      @apply bg-system-gray-400;
+    }
+  }
+}
+
 .swiper-slide img {
   @apply block h-full w-full object-cover;
 }
