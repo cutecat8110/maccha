@@ -85,7 +85,7 @@ const refreshPage = (event: MouseEvent) => {
 
 <style lang="scss" scoped>
 .footer {
-  @apply common-section-padding border-t-8 border-transparent bg-system-dark text-white xl:pb-[7.5rem] xl:pt-20;
+  @apply common-section-padding border-t-8 border-transparent bg-system-dark text-white lg:pb-[7.5rem] lg:pt-20;
   background-image: linear-gradient(
     to right,
     rgba(255, 255, 255, 0.3),

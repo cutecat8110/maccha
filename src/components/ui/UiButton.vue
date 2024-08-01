@@ -1,12 +1,12 @@
 <template>
   <component
-    :is="props.tag"
-    :type="props.tag === 'button' ? 'button' : null"
     :class="[
       props.block ? 'flex' : 'inline-flex',
       'h-10 items-center justify-center gap-x-2 truncate transition-all duration-500',
       stateClass
     ]"
+    :type="props.tag === 'button' ? 'button' : null"
+    :is="props.tag"
   >
     <span v-if="$slots.leading" class="icon-base shrink-0">
       <slot name="leading" />
@@ -20,7 +20,7 @@
   </component>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
 const props = defineProps({
   tag: {
     type: String as PropType<'button' | 'a' | 'span'>,
@@ -36,8 +36,8 @@ const props = defineProps({
 const stateClass = computed<string>(() => {
   return {
     outline:
-      'px-6 border border-white/30 text-sub-title xl:text-title rounded-full backdrop-blur-xl hover:border-white uppercase',
-    link: 'px-4 text-body-2 xl:text-body capitalize',
+      'px-6 border border-white/30 text-sub-title lg:text-title rounded-full backdrop-blur-xl hover:border-white uppercase',
+    link: 'px-4 text-body-2 lg:text-body capitalize',
     icon: 'w-10'
   }[props.state]
 })

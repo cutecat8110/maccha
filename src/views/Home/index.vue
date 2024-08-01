@@ -1,6 +1,6 @@
 <template>
   <HomeHeader class="fixed inset-x-0 top-0 z-30" />
-  <main class="flex-1 bg-system-light">
+  <main class="relative flex-1 bg-system-light">
     <Hero id="hero" />
 
     <Story id="story" />
