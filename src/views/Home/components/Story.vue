@@ -2,8 +2,8 @@
   <section class="story-wrapper">
     <!-- 標題 -->
     <div class="space-y-2 text-center">
-      <h2 class="text-h4 uppercase lg:text-h2">maccha</h2>
-      <p class="text-title capitalize text-system-main-400 lg:text-h6">story</p>
+      <h2 class="section-title">maccha</h2>
+      <p class="section-sub-title text-system-main-400">story</p>
     </div>
 
     <div class="space-y-20 lg:space-y-[12.5rem]">

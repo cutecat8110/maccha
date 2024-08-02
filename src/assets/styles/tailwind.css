@@ -39,6 +39,15 @@
   .common-section-padding {
     @apply py-20 lg:py-[12.5rem];
   }
+
+  .section-title {
+    @apply text-h4 uppercase lg:text-h2;
+  }
+
+  .section-sub-title {
+    @apply text-title capitalize lg:text-h6;
+  }
+
   .svg-base {
     height: 1em;
   }

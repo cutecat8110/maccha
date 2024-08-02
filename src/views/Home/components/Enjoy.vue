@@ -5,10 +5,10 @@
       <!-- 標題 -->
       <div class="flex flex-col items-center gap-y-6 md:col-span-3 md:gap-y-10 md:p-10 md:pb-20">
         <div class="flex flex-col items-center gap-y-6 space-y-2 md:gap-y-10">
-          <h2 class="text-vlr text-h4 leading-none tracking-[.2em] text-system-main-600 lg:text-h2">
+          <h2 class="text-vlr section-title leading-none tracking-[.2em] text-system-main-600">
             極享
           </h2>
-          <p class="text-title capitalize lg:text-h6">Enjoy</p>
+          <p class="section-sub-title">Enjoy</p>
         </div>
 
         <p
