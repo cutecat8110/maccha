@@ -1,6 +1,7 @@
 <template>
   <section class="common-section-padding bg-system-light">
-    <div class="container flex flex-col gap-x-10 gap-y-10 md:grid md:grid-cols-12">
+    <div class="container relative flex flex-col gap-x-10 gap-y-10 md:grid md:grid-cols-12">
+      <SvgBamboo class="absolute -top-20 left-2 -translate-y-1/2 lg:-top-[12.5rem] lg:left-3" />
       <!-- 標題 -->
       <div class="flex flex-col items-center gap-y-6 md:col-span-3 md:gap-y-10 md:p-10 md:pb-20">
         <div class="flex flex-col items-center gap-y-6 space-y-2 md:gap-y-10">
@@ -19,7 +20,7 @@
 
       <div class="flex flex-col gap-y-6 md:col-span-9 lg:gap-y-10">
         <Swiper
-          class="w-full flex-1"
+          class=""
           :autoplay="{
             delay: 5000
           }"
@@ -48,6 +49,7 @@
 
 <script lang="ts" setup>
 import { Autoplay, EffectFade, Pagination } from 'swiper/modules'
+import { Swiper } from 'swiper/types'
 const enjoyList = ref([
   {
     src: '/img/enjoy01.jpg',
@@ -67,8 +69,8 @@ const enjoyList = ref([
 ])
 
 /* 輪播 refs init */
-const enjoySwiperRefs = ref(null)
-const onSwiper = (swiper) => {
+const enjoySwiperRefs = ref<null | Swiper>(null)
+const onSwiper = (swiper: Swiper) => {
   enjoySwiperRefs.value = swiper
 }
 
@@ -79,18 +81,11 @@ const onSlideChange = () => {
     currentIndex.value = enjoySwiperRefs.value.realIndex
   }
 }
-
-/* 輪播導航 */
-const goToSlide = (index: number) => {
-  if (enjoySwiperRefs.value) {
-    enjoySwiperRefs.value.slideTo(enjoySwiperRefs.value.loopedSlides + index)
-  }
-}
 </script>
 
 <style lang="scss" scoped>
 :deep(.swiper) {
-  @apply flex flex-col gap-y-4 lg:gap-y-6;
+  @apply flex w-full flex-1 flex-col gap-y-4 lg:gap-y-6;
 }
 
 :deep(.swiper-wrapper) {

@@ -13,6 +13,7 @@ declare module 'vue' {
     SectionDesc: typeof import('./components/SectionDesc.vue')['default']
     SectionIndicator: typeof import('./components/SectionIndicator.vue')['default']
     SvgArrow: typeof import('./components/svg/SvgArrow.vue')['default']
+    SvgBamboo: typeof import('./components/svg/SvgBamboo.vue')['default']
     SvgCart: typeof import('./components/svg/SvgCart.vue')['default']
     SvgClose: typeof import('./components/svg/SvgClose.vue')['default']
     SvgFacebook: typeof import('./components/svg/SvgFacebook.vue')['default']
