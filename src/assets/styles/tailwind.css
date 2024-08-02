@@ -50,6 +50,14 @@
   .link-base {
     @apply transition-opacity duration-500 hover:opacity-75;
   }
+
+  .bamboo-l {
+    @apply absolute -top-20 left-0 -translate-y-1/2 lg:-top-[12.5rem] lg:left-0;
+  }
+
+  .bamboo-r {
+    @apply absolute -top-20 right-0 -translate-y-1/2 rotate-180 lg:-top-[12.5rem] lg:right-0;
+  }
 }
 
 @layer utilities {

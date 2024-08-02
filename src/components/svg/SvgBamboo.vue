@@ -2,7 +2,7 @@
   <svg
     class="decoration-bamboo"
     fill="none"
-    viewBox="0 0 64 160"
+    viewBox="0 0 68 160"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
@@ -97,6 +97,6 @@
 
 <style lang="scss" scoped>
 .decoration-bamboo {
-  @apply h-20 w-[2.625rem] lg:h-40 lg:w-16;
+  @apply h-20 w-[2.625rem] lg:h-40 lg:w-[4.25rem];
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <section class="common-section-padding bg-system-light">
     <div class="container relative flex flex-col gap-x-10 gap-y-10 md:grid md:grid-cols-12">
-      <SvgBamboo class="absolute -top-20 left-2 -translate-y-1/2 lg:-top-[12.5rem] lg:left-3" />
+      <SvgBamboo class="bamboo-l" />
       <!-- 標題 -->
       <div class="flex flex-col items-center gap-y-6 md:col-span-3 md:gap-y-10 md:p-10 md:pb-20">
         <div class="flex flex-col items-center gap-y-6 space-y-2 md:gap-y-10">
@@ -19,6 +19,7 @@
       </div>
 
       <div class="flex flex-col gap-y-6 md:col-span-9 lg:gap-y-10">
+        <!--  輪播 -->
         <Swiper
           class=""
           :autoplay="{
@@ -36,6 +37,7 @@
           </SwiperSlide>
         </Swiper>
 
+        <!--  說明 -->
         <div class="flex gap-4 text-title md:h-12 lg:gap-6 lg:text-h6">
           <p>{{ `0${currentIndex + 1}.` }}</p>
           <p class="lg:line-clamp-2">
@@ -49,7 +51,7 @@
 
 <script lang="ts" setup>
 import { Autoplay, EffectFade, Pagination } from 'swiper/modules'
-import { Swiper } from 'swiper/types'
+import type { Swiper } from 'swiper/types'
 const enjoyList = ref([
   {
     src: '/img/enjoy01.jpg',
