@@ -32,7 +32,7 @@
 
       <!--  mobile．輪播 -->
       <div class="flex flex-col gap-y-6 md:hidden">
-        <NewsCard v-for="(news, index) in newsList.slice(2)" :key="index" :news="news" />
+        <NewsCard v-for="(news, index) in newsList.slice(0, 2)" :key="index" :news="news" />
       </div>
 
       <div class="flex flex-row-reverse">

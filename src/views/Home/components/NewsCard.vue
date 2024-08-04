@@ -11,10 +11,12 @@
     </div>
     <div class="space-y-2 p-6 text-sub-title lg:text-title">
       <p
-        class="text-system-gray-400 transition-colors duration-500 group-hover:text-system-gray-200"
+        class="flex items-center gap-[.375rem] text-system-gray-400 transition-colors duration-500 group-hover:text-system-gray-200"
       >
         {{ props.news.type }}
-        <span></span>
+        <span
+          class="mt-[.125rem] h-2 w-[.125rem] bg-system-gray-600 transition-colors duration-500 group-hover:bg-system-gray-400"
+        ></span>
         {{ props.news.date }}
       </p>
       <p class="line-clamp-1">{{ props.news.content }}</p>

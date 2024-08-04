@@ -1,0 +1,11 @@
+.menu-section {
+  @apply flex w-1/2 flex-col gap-y-10 border-l border-system-gray-400 p-10;
+}
+
+.menu-content {
+  @apply text-body-2 text-system-gray-600 md:text-body;
+}
+
+.menu-price {
+  @apply text-sub-title;
+}
