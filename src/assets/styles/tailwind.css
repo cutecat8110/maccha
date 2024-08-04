@@ -57,7 +57,7 @@
   }
 
   .link-base {
-    @apply transition-opacity duration-500 hover:opacity-75;
+    @apply transition-opacity duration-500 hover:opacity-50 hover:drop-shadow-md;
   }
 
   .bamboo-l {

@@ -55,7 +55,7 @@
 
         <!-- 連結．線上商店 -->
         <router-link class="link-base" to="/">
-          <UiButton class="" href="#access" tag="span">
+          <UiButton tag="span">
             <template #leading>
               <SvgCart />
             </template>

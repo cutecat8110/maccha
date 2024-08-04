@@ -1,6 +1,6 @@
 <template>
   <section class="common-section-padding bg-system-dark text-white">
-    <div class="container relative space-y-10">
+    <div class="container relative flex flex-col gap-y-10 md:px-[5.75rem]">
       <SvgBamboo class="bamboo-r" />
 
       <!-- 標題 -->
@@ -9,61 +9,51 @@
         <p class="section-sub-title text-system-main-400">News</p>
       </div>
 
-      <!--  輪播 -->
+      <!--  desktop．輪播 -->
       <Swiper
-        class="hidden overflow-visible md:block"
+        class="relative hidden w-full overflow-visible md:block"
+        :modules="[Navigation]"
+        :navigation="{ nextEl: '.nextEl', prevEl: '.prevEl' }"
         :slides-per-view="slidesView"
         :space-between="40"
       >
         <SwiperSlide v-for="(news, index) in newsList" :key="index">
-          <!-- <img :src="news.src" :alt="news.alt" />
-          <div class="space-y-2 p-6 text-sub-title lg:text-title">
-            <p class="text-system-gray-400">
-              {{ news.type }}
-              <span></span>
-              {{ news.date }}
-            </p>
-            <p class="line-clamp-1">{{ news.content }}</p>
-          </div> -->
           <NewsCard :news="news" />
         </SwiperSlide>
+
+        <UiButton class="prevEl" state="icon">
+          <SvgArrow class="rotate-180" />
+        </UiButton>
+
+        <UiButton class="nextEl" state="icon">
+          <SvgArrow />
+        </UiButton>
       </Swiper>
 
+      <!--  mobile．輪播 -->
       <div class="flex flex-col gap-y-6 md:hidden">
-        <!-- <div
-          v-for="(news, index) in newsList.slice(2)"
-          :key="index"
-          class="flex flex-col bg-system-gray-800"
-        >
-          <img class="aspect-video object-cover" :src="news.src" :alt="news.alt" />
-          <div class="space-y-2 p-6 text-sub-title">
-            <p class="text-system-gray-400">
-              {{ news.type }}
-              <span></span>
-              {{ news.date }}
-            </p>
-            <p class="line-clamp-1">{{ news.content }}</p>
-          </div>
-        </div> -->
         <NewsCard v-for="(news, index) in newsList.slice(2)" :key="index" :news="news" />
       </div>
 
       <div class="flex flex-row-reverse">
-        <UiButton href="#enjoy" state="outline" tag="a">
-          view all
-          <template #trailing>
-            <SvgArrow />
-          </template>
-        </UiButton>
+        <router-link to="/">
+          <UiButton state="outline" tag="span">
+            view all
+            <template #trailing>
+              <SvgArrow />
+            </template>
+          </UiButton>
+        </router-link>
       </div>
     </div>
   </section>
 </template>
 
 <script lang="ts" setup>
-import NewsCard from './NewsCard.vue'
-
+import SvgArrow from '@/components/svg/SvgArrow.vue'
 import { useWindowSize } from '@vueuse/core'
+import { Navigation } from 'swiper/modules'
+import NewsCard from './NewsCard.vue'
 
 const newsList = ref([
   {
@@ -97,9 +87,27 @@ const newsList = ref([
   }
 ])
 
+/* 輪播 RWD 數量 */
 const { width } = useWindowSize()
-
 const slidesView = computed(() => {
   return width.value > 960 ? 3 : 2
 })
 </script>
+
+<style lang="scss" scoped>
+.prevEl,
+.nextEl {
+  @apply absolute top-1/2 z-[1] -translate-y-1/2 text-system-gray-600 transition-colors duration-500 hover:text-white;
+
+  &.swiper-button-disabled {
+    @apply text-system-gray-600;
+  }
+}
+.prevEl {
+  @apply left-0 -translate-x-full;
+}
+
+.nextEl {
+  @apply right-0 translate-x-full;
+}
+</style>
