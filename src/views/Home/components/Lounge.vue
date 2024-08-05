@@ -1,6 +1,11 @@
 <template>
-  <section class="common-section-padding min-h-screen bg-system-dark text-white">
-    <div class="container relative flex flex-col gap-y-20">
+  <section class="common-section-padding relative min-h-screen bg-system-dark text-white">
+    <div class="lounge-bg">
+      <span class="line-1"></span>
+      <span class="line-2"></span>
+      <span class="line-3"></span>
+    </div>
+    <div class="container relative z-0 flex flex-col gap-y-20">
       <SvgBamboo class="bamboo-r" />
 
       <!-- 標題 -->
@@ -9,17 +14,32 @@
         <p class="section-sub-title text-system-main-400">lounge</p>
       </div>
 
-      <div class="space-y-[12.5rem]">
-        <div v-for="(lounge, index) in loungeList" :key="index" class="space-y-[7.5rem]">
-          <div class="grid grid-cols-2 items-center gap-x-20 pl-20">
+      <div class="space-y-20 md:space-y-[7.5rem] lg:space-y-[12.5rem]">
+        <div
+          v-for="(lounge, index) in loungeList"
+          :key="index"
+          class="space-y-10 md:space-y-20 lg:space-y-[7.5rem]"
+        >
+          <div
+            :class="[
+              index % 2 !== 0 ? 'lg:pr-10 xl:pr-20' : 'lg:pl-10 xl:pl-20',
+              'grid grid-cols-1 items-center gap-10 md:grid-cols-2 lg:gap-x-20'
+            ]"
+          >
             <!-- 圖片 -->
-            <img :src="lounge.img" alt="" />
+            <img
+              :class="[index % 2 !== 0 && 'md:order-last', 'lounge-img aspect-square object-cover']"
+              :src="lounge.img"
+              alt=""
+            />
 
             <!-- 店鋪資訊 -->
-            <div class="p-10">
-              <h3 class="mb-10 text-nowrap text-h4">{{ lounge.name }}</h3>
+            <div class="lg:p-10">
+              <h3 class="mb-6 text-nowrap text-h6 text-system-gray-50 md:mb-10 lg:text-h4">
+                {{ lounge.name }}
+              </h3>
 
-              <div class="lounge-content mb-4">
+              <div class="lounge-content mb-1">
                 <div>地址</div>
                 <div>{{ lounge.address }}</div>
                 <div>電話號碼</div>
@@ -36,13 +56,13 @@
 
               <div class="flex justify-end">
                 <UiButton
-                  class="link-base"
+                  class="link-base text-body-2 text-system-gray-50"
                   href="https://instagram.com/cutecat8110"
                   tag="a"
                   target="_blank"
                 >
                   <template #leading>
-                    <SvgInstagram />
+                    <SvgInstagram class="" />
                   </template>
                   Instagram 最新情報
                 </UiButton>
@@ -53,7 +73,7 @@
           <div
             :id="lounge.id"
             :ref="(el) => (lounge.mapRefs = el as HTMLElement | null)"
-            class="h-[30rem]"
+            class="h-[25rem] md:h-[30rem]"
           ></div>
         </div>
       </div>
@@ -122,14 +142,14 @@ onMounted(() => {
         strokeWeight: 0,
         rotation: 0,
         scale: 1,
-        anchor: new google.maps.Point(0, 0)
+        anchor: new google.maps.Point(37.5, 34)
       }
 
       new google.maps.Marker({
         map,
         position: element.location,
         icon: svgMarker,
-        title: 'A marker using a custom SVG image.'
+        title: 'point'
       })
     })
   })
@@ -137,11 +157,54 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
+.lounge-bg {
+  @apply absolute inset-0 h-full w-full;
+  .line-1,
+  .line-2,
+  .line-3 {
+    @apply absolute inset-0 h-full w-full;
+  }
+
+  .line-1 {
+    background-image: linear-gradient(
+      -60deg,
+      transparent 37px,
+      #222222 38px,
+      transparent 39px,
+      transparent
+    );
+    background-size: 44px 76px;
+  }
+  .line-2 {
+    background-image: linear-gradient(
+      60deg,
+      transparent 37px,
+      #222222 38px,
+      transparent 39px,
+      transparent
+    );
+    background-size: 44px 76px;
+  }
+  .line-3 {
+    background-image: linear-gradient(
+      transparent 18px,
+      #222222 19px,
+      transparent 20px,
+      transparent
+    );
+    background-size: 44px 38px;
+    background-position: 0 0px;
+  }
+}
+
 .lounge-content {
-  @apply grid gap-6 border-y border-system-gray-400 py-10;
-  grid-template-columns: 1fr auto;
+  @apply grid gap-4 border-y border-system-gray-400 py-6 md:gap-6 md:py-10;
+  grid-template-columns: auto 1fr;
   :nth-child(odd) {
-    @apply text-nowrap;
+    @apply text-nowrap text-sub-title text-system-gray-200 lg:text-title;
+  }
+  :nth-child(even) {
+    @apply text-body-2 lg:text-body;
   }
 }
 

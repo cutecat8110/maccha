@@ -165,7 +165,7 @@ const refreshPage = (event: MouseEvent) => {
 
 /* 滾輪進入區塊 */
 const activeSection = ref('')
-const sectionIds = ['hero', 'story', 'enjoy', 'news', 'menu', 'access', 'footer']
+const sectionIds = ['hero', 'story', 'enjoy', 'news', 'menu', 'lounge', 'footer']
 const onScroll = () => {
   let scrollPosition = window.scrollY + 200
   for (let i = sectionIds.length - 1; i >= 0; i--) {
