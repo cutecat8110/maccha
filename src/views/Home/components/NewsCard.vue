@@ -16,7 +16,7 @@
         {{ props.news.type }}
         <span
           class="mt-[.125rem] h-2 w-[.125rem] bg-system-gray-600 transition-colors duration-500 group-hover:bg-system-gray-400"
-        ></span>
+        />
         {{ props.news.date }}
       </p>
       <p class="line-clamp-1">{{ props.news.content }}</p>

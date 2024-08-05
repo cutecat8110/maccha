@@ -53,7 +53,7 @@
   }
 
   .icon-base {
-    @apply text-icon-2 md:text-icon;
+    @apply text-icon-2 lg:text-icon;
   }
 
   .link-base {

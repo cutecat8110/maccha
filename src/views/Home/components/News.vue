@@ -1,6 +1,6 @@
 <template>
   <section class="common-section-padding bg-system-dark text-white">
-    <div class="container relative flex flex-col gap-y-10 md:px-[5.75rem]">
+    <div class="container relative flex flex-col gap-y-10 lg:px-[5.75rem]">
       <SvgBamboo class="bamboo-r" />
 
       <!-- 標題 -->
@@ -90,7 +90,7 @@ const newsList = ref([
 /* 輪播 RWD 數量 */
 const { width } = useWindowSize()
 const slidesView = computed(() => {
-  return width.value > 960 ? 3 : 2
+  return width.value > 992 ? 3 : 2
 })
 </script>
 

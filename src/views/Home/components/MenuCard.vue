@@ -1,14 +1,12 @@
 <template>
-  <div class="flex h-52 flex-col justify-between p-6">
-    <div class="space-y-4">
-      <h4 class="text-h6 text-system-gray-800">{{ props.dish.name }}</h4>
+  <div class="flex flex-col gap-y-4 px-9 py-6 md:px-6">
+    <h4 class="line-clamp-3 text-title text-system-gray-800 lg:text-h6">{{ props.dish.name }}</h4>
 
-      <p class="menu-content">
-        {{ props.dish.content }}
-      </p>
-    </div>
+    <p class="menu-content mb-auto line-clamp-4">
+      {{ props.dish.content }}
+    </p>
 
-    <p class="menu-price">{{ props.dish.price }}</p>
+    <p class="menu-price mt-6 text-end md:text-start">{{ props.dish.price }}</p>
   </div>
 </template>
 

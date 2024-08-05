@@ -1,25 +1,25 @@
 <template>
-  <section class="common-section-padding min-h-screen bg-system-light">
-    <div class="container relative flex flex-col gap-y-10 md:px-[92px]">
+  <section class="common-section-padding bg-system-light">
+    <div class="container relative flex flex-col gap-y-10 lg:px-[92px]">
       <SvgBamboo class="bamboo-l" />
 
       <!-- 標題 -->
-      <div class="flex items-end justify-between">
+      <div class="flex items-end justify-center md:justify-between">
         <div class="flex flex-col items-center gap-4">
-          <h2 class="section-title">食饌</h2>
-          <p class="section-sub-title text-system-main-400">Menu</p>
+          <h2 class="section-title text-system-main-600">食饌</h2>
+          <p class="section-sub-title">Menu</p>
         </div>
 
-        <p class="text-body-2 text-system-gray-600">精選 MATCHA 篇章</p>
+        <p class="hidden text-body-2 text-system-gray-600 md:block">精選 MATCHA 篇章</p>
       </div>
 
       <div class="relative flex flex-col items-center gap-y-4 border border-system-gray-400 p-6">
         <p
-          class="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 bg-system-light px-5 text-sub-title uppercase text-system-gray-600"
+          class="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 bg-system-light px-5 text-tiny uppercase text-system-gray-600 lg:text-sub-title"
         >
           course menu
         </p>
-        <h3 class="text-h3 text-system-gray-800">
+        <h3 class="text-h5 text-system-gray-800 lg:text-h3">
           {{ menuSingle.name }}
         </h3>
         <p class="menu-content">
@@ -30,20 +30,28 @@
         </p>
       </div>
 
-      <div class="flex pb-10">
+      <div class="menu-section-wrapper">
         <div class="menu-section">
           <template v-for="(dish, index) in menuList.slice(0, 3)" :key="index">
-            <MenuCard :dish="dish" />
-            <span v-if="index < 2" class="border-t border-dashed border-system-gray-400" />
+            <MenuCard class="flex-1 shrink-0" :dish="dish" />
+            <div v-if="index < 2" class="shrink-0 border-t border-dashed border-system-gray-400" />
           </template>
         </div>
+
+        <div class="shrink-0 border-t border-dashed border-system-gray-400 md:hidden" />
+
         <div class="menu-section">
           <template v-for="(dish, index) in menuList.slice(3, 6)" :key="index">
-            <MenuCard :dish="dish" />
-            <span v-if="index < 2" class="border-t border-dashed border-system-gray-400" />
+            <MenuCard class="flex-1 shrink-0" :dish="dish" />
+            <div v-if="index < 2" class="shrink-0 border-t border-dashed border-system-gray-400" />
           </template>
         </div>
+        <div class="shrink-0 border-t border-dashed border-system-gray-400 md:hidden" />
       </div>
+
+      <p class="text-center text-tiny text-system-gray-600 md:text-start lg:text-body-2">
+        ＊ 根據產量與季節變化，產品內容可能會有所調整。
+      </p>
     </div>
   </section>
 </template>
