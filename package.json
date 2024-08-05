@@ -18,6 +18,8 @@
     }
   },
   "dependencies": {
+    "@googlemaps/js-api-loader": "^1.16.8",
+    "@types/google.maps": "^3.55.12",
     "@vueuse/core": "^10.11.0",
     "pinia": "^2.1.7",
     "swiper": "^11.1.9",

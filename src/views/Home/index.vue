@@ -11,16 +11,16 @@
 
     <Menu id="menu" />
 
-    <Access id="access" />
+    <Lounge id="lounge" />
   </main>
   <PageFooter id="footer" />
 </template>
 
 <script lang="ts" setup>
-import Access from './components/Access.vue'
 import Enjoy from './components/Enjoy.vue'
 import Hero from './components/Hero.vue'
 import HomeHeader from './components/HomeHeader.vue'
+import Lounge from './components/Lounge.vue'
 import Menu from './components/Menu.vue'
 import News from './components/News.vue'
 import Story from './components/Story.vue'

@@ -21,10 +21,10 @@
           <NewsCard :news="news" />
         </SwiperSlide>
 
+        <!--  輪播控制器 -->
         <UiButton class="prevEl" state="icon">
           <SvgArrow class="rotate-180" />
         </UiButton>
-
         <UiButton class="nextEl" state="icon">
           <SvgArrow />
         </UiButton>
@@ -35,6 +35,7 @@
         <NewsCard v-for="(news, index) in newsList.slice(0, 2)" :key="index" :news="news" />
       </div>
 
+      <!--  連結．最新消息頁 -->
       <div class="flex flex-row-reverse">
         <router-link to="/">
           <UiButton state="outline" tag="span">

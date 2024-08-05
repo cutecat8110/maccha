@@ -45,12 +45,12 @@
         </UiButton>
 
         <UiButton
-          :class="[activeSection === 'access' && 'active']"
+          :class="[activeSection === 'lounge' && 'active']"
           class="menu-btn"
-          href="#access"
+          href="#lounge"
           tag="a"
         >
-          access
+          lounge
         </UiButton>
 
         <!-- 連結．線上商店 -->
@@ -122,13 +122,13 @@
               </UiButton>
 
               <UiButton
-                :class="[activeSection === 'access' && 'active']"
+                :class="[activeSection === 'lounge' && 'active']"
                 class="menu-btn"
-                href="#access"
+                href="#lounge"
                 tag="a"
                 @click="toggleMenu(false)"
               >
-                access
+                lounge
               </UiButton>
             </nav>
 
