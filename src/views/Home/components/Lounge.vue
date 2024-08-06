@@ -27,11 +27,18 @@
             ]"
           >
             <!-- 圖片 -->
-            <img
-              :class="[index % 2 !== 0 && 'md:order-last', 'lounge-img aspect-square object-cover']"
-              :src="lounge.img"
-              alt=""
-            />
+            <div
+              :class="[index % 2 !== 0 && 'md:order-last', 'lounge-img flex aspect-square gap-10']"
+            >
+              <img
+                :class="[
+                  index % 2 !== 0 && 'md:order-last',
+                  'lounge-img aspect-square object-cover'
+                ]"
+                :src="lounge.img"
+                alt=""
+              />
+            </div>
 
             <!-- 店鋪資訊 -->
             <div class="lg:p-10">
@@ -62,7 +69,7 @@
                   target="_blank"
                 >
                   <template #leading>
-                    <SvgInstagram class="" />
+                    <SvgInstagram />
                   </template>
                   Instagram 最新情報
                 </UiButton>
@@ -73,8 +80,8 @@
           <div
             :id="lounge.id"
             :ref="(el) => (lounge.mapRefs = el as HTMLElement | null)"
-            class="h-[25rem] md:h-[30rem]"
-          ></div>
+            class="h-[25rem] lg:h-[30rem]"
+          />
         </div>
       </div>
     </div>
