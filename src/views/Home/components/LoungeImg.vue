@@ -1,16 +1,16 @@
 <template>
-  <div :class="[index % 2 !== 0 && 'md:order-last']" class="py-[1.875rem]">
+  <div :class="[index % 2 !== 0 && 'md:order-last']" class="py-10">
     <section ref="imgWrapperRefs" class="lounge-img-wrapper flex h-[25rem] gap-[2px] lg:h-[30rem]">
       <span
         v-for="(_, index) in 3"
-        :ref="(el) => (elements[index].selector = el)"
+        :ref="(el) => (elements[index].selector = el as HTMLElement | null)"
         :key="index"
         :class="[`con-${index}`, 'h-full bg-no-repeat']"
         :style="{
           width: `${imgWidth}px`,
           backgroundImage: `url(${props.image})`,
           backgroundPositionX: `${positionX[index]}`,
-          backgroundSize: `auto ${height + 60}px`
+          backgroundSize: `auto ${height + 80}px`
         }"
       />
     </section>
@@ -43,16 +43,22 @@ const imgWidth = computed(() => {
 })
 
 /* 圖片定位 */
-const positionX = computed(() => ({
-  0: `calc(50% + ${imgWidth.value}px + 2px)`,
-  1: `calc(50%)`,
-  2: `calc(50% - ${imgWidth.value}px - 2px)`
-}))
+const positionX = computed(() => [
+  `calc(50% + ${imgWidth.value}px + 2px)`,
+  `calc(50%)`,
+  `calc(50% - ${imgWidth.value}px - 2px)`
+])
 
-const elements = ref([
-  { selector: null, initialY: -20, targetY: 20, initialPY: '-10px', targetPY: '-50px' },
-  { selector: null, initialY: 10, targetY: -10, initialPY: '-40px', targetPY: '-20px' },
-  { selector: null, initialY: -10, targetY: 10, initialPY: '-20px', targetPY: '-40px' }
+const elements = ref<
+  {
+    selector: HTMLElement | null
+    initialY: number
+    targetY: number
+  }[]
+>([
+  { selector: null, initialY: -20, targetY: 20 },
+  { selector: null, initialY: 10, targetY: -10 },
+  { selector: null, initialY: -10, targetY: 10 }
 ])
 
 onMounted(() => {
@@ -60,11 +66,11 @@ onMounted(() => {
     gsap.fromTo(
       element.selector,
       {
-        backgroundPositionY: element.initialPY,
+        backgroundPositionY: `${(element.initialY + 40) * -1}px`,
         y: element.initialY
       },
       {
-        backgroundPositionY: element.targetPY,
+        backgroundPositionY: `${(element.targetY + 40) * -1}px`,
         y: element.targetY,
         scrollTrigger: {
           trigger: element.selector, // 指定用來觸發動畫的元素
