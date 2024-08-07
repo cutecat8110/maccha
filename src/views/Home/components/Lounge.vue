@@ -27,18 +27,7 @@
             ]"
           >
             <!-- 圖片 -->
-            <div
-              :class="[index % 2 !== 0 && 'md:order-last', 'lounge-img flex aspect-square gap-10']"
-            >
-              <img
-                :class="[
-                  index % 2 !== 0 && 'md:order-last',
-                  'lounge-img aspect-square object-cover'
-                ]"
-                :src="lounge.img"
-                alt=""
-              />
-            </div>
+            <LoungeImg :image="lounge.img" :index="index" />
 
             <!-- 店鋪資訊 -->
             <div class="lg:p-10">
@@ -90,7 +79,7 @@
 
 <script lang="ts" setup>
 import { Loader } from '@googlemaps/js-api-loader'
-
+import LoungeImg from './LoungeImg.vue'
 import googleMapStyles from './google-map-styles.json'
 
 const loungeList = ref([
