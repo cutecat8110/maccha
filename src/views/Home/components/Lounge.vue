@@ -5,7 +5,7 @@
       <span class="line-2"></span>
       <span class="line-3"></span>
     </div>
-    <div class="container relative z-0 flex flex-col gap-y-20">
+    <div class="relative z-0 flex flex-col gap-y-20 md:container">
       <SvgBamboo class="bamboo-r" />
 
       <!-- 標題 -->

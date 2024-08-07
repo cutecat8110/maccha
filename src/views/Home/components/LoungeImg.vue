@@ -1,12 +1,6 @@
 <template>
-  <div class="py-[1.875rem]">
-    <section
-      ref="imgWrapperRefs"
-      :class="[
-        index % 2 !== 0 && 'md:order-last',
-        'lounge-img-wrapper flex h-[25rem] gap-1 lg:h-[30rem]'
-      ]"
-    >
+  <div :class="[index % 2 !== 0 && 'md:order-last']" class="py-[1.875rem]">
+    <section ref="imgWrapperRefs" class="lounge-img-wrapper flex h-[25rem] gap-[2px] lg:h-[30rem]">
       <span
         v-for="(_, index) in 3"
         :ref="(el) => (elements[index].selector = el)"
@@ -19,8 +13,6 @@
           backgroundSize: `auto ${height + 60}px`
         }"
       />
-      <!-- backgroundPositionY: `${positionY[index]}`,
-      transform: `${translateY[index]}`, -->
     </section>
   </div>
 </template>
@@ -47,52 +39,41 @@ const { width, height } = useElementSize(imgWrapperRefs)
 
 /* 1/3 圖片 的寬 */
 const imgWidth = computed(() => {
-  return (width.value - 8) / 3
+  return (width.value - 4) / 3
 })
 
 /* 圖片定位 */
 const positionX = computed(() => ({
-  0: `calc(50% + ${imgWidth.value}px + 4px)`,
+  0: `calc(50% + ${imgWidth.value}px + 2px)`,
   1: `calc(50%)`,
-  2: `calc(50% - ${imgWidth.value}px - 4px)`
+  2: `calc(50% - ${imgWidth.value}px - 2px)`
 }))
-// const positionY = computed(() => ({
-//   0: '-60px',
-//   1: '0px',
-//   2: '-60px'
-// }))
 
-/* 位移 */
-// const translateY = computed(() => ({
-//   0: 'translateY(30px)',
-//   1: 'translateY(-30px)',
-//   2: 'translateY(30px)'
-// }))
-const elements = [
-  { selector: ref(null), initialY: 30, targetY: -30 },
-  { selector: ref(null), initialY: -30, targetY: 30 },
-  { selector: ref(null), initialY: 30, targetY: -30 }
-]
+const elements = ref([
+  { selector: null, initialY: -20, targetY: 20, initialPY: '-10px', targetPY: '-50px' },
+  { selector: null, initialY: 10, targetY: -10, initialPY: '-40px', targetPY: '-20px' },
+  { selector: null, initialY: -10, targetY: 10, initialPY: '-20px', targetPY: '-40px' }
+])
 
 onMounted(() => {
-  elements.forEach((element) => {
-    console.log(element.selector.value)
-    gsap.set(element.selector.value, {
-      backgroundPositionY: element.initialY === 30 ? '-60px' : '0px',
-      y: element.initialY
-    })
-
-    gsap.to(element.selector, {
-      scrollTrigger: {
-        trigger: element.selector.value, // 指定用來觸發動畫的元素
-        markers: true, // 顯示標記，用於調試
-        start: 'top bottom', // 元件進入視窗底部時開始動畫
-        end: 'bottom top', // 元件完全離開視窗頂部時結束動畫
-        scrub: true // 動畫播放是否以視窗滾動播放
+  elements.value.forEach((element) => {
+    gsap.fromTo(
+      element.selector,
+      {
+        backgroundPositionY: element.initialPY,
+        y: element.initialY
       },
-      backgroundPositionY: element.targetY === -30 ? '0px' : '-60px',
-      y: element.targetY
-    })
+      {
+        backgroundPositionY: element.targetPY,
+        y: element.targetY,
+        scrollTrigger: {
+          trigger: element.selector, // 指定用來觸發動畫的元素
+          start: 'top center', // 元件進入視窗底部時開始動畫
+          end: 'bottom center', // 元件完全離開視窗頂部時結束動畫
+          scrub: 1.6 // 動畫播放是否以視窗滾動播放
+        }
+      }
+    )
   })
 })
 </script>
