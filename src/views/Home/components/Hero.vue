@@ -5,7 +5,7 @@
         <div class="space-y-2">
           <h1 class="text-h3 lg:text-h1">宇治抹茶新篇章</h1>
           <p class="text-title capitalize text-system-main-400 lg:text-h6">
-            for matcha lovers project
+            for maccha lovers project
           </p>
         </div>
         <UiButton href="#enjoy" state="outline" tag="a"> enjoy now </UiButton>

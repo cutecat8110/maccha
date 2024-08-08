@@ -10,7 +10,7 @@
           <p class="section-sub-title">Menu</p>
         </div>
 
-        <p class="hidden text-body-2 text-system-gray-600 md:block">精選 MATCHA 篇章</p>
+        <p class="hidden text-body-2 text-system-gray-600 md:block">精選 MACCHA 篇章</p>
       </div>
 
       <!-- 單一菜單 -->

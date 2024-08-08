@@ -52,7 +52,7 @@
           </UiButton>
           <UiButton
             class="link-base"
-            href="https://github.com/cutecat8110/matcha"
+            href="https://github.com/cutecat8110/maccha"
             state="icon"
             tag="a"
             target="_blank"
@@ -62,7 +62,7 @@
         </nav>
         <!-- 版權聲明 -->
         <p class="text-center text-system-gray-200 lg:text-right lg:leading-10">
-          &copy; MATCHA. All Rights Reserved.
+          &copy; MACCHA. All Rights Reserved.
         </p>
       </div>
     </div>

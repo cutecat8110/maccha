@@ -77,14 +77,14 @@ const newsList = ref([
     alt: '',
 
     date: '2024.06.01',
-    content: '甜祇園 × MATCHA 合作甜點第一彈「宇治抹茶奶油夾心餅乾 巧妙堆疊」將於4月20日開始銷售'
+    content: '甜祇園 × MACCHA 合作甜點第一彈「宇治抹茶奶油夾心餅乾 巧妙堆疊」將於4月20日開始銷售'
   },
   {
     type: '預購',
     src: '/img/news04.jpg',
     alt: '',
     date: '2024.06.01',
-    content: 'MATCHA 會員限定月替甜點第3彈『宇治抹茶奶油泡芙』現已開放預訂。'
+    content: 'MACCHA 會員限定月替甜點第3彈『宇治抹茶奶油泡芙』現已開放預訂。'
   }
 ])
 
