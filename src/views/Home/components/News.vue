@@ -59,21 +59,21 @@ import NewsCard from './NewsCard.vue'
 const newsList = ref([
   {
     type: '線上',
-    src: '/img/news01.jpg',
+    src: '/maccha/img/news01.jpg',
     alt: '',
     date: '2024.06.01',
     content: '2024年夏季中元禮品特輯已公開！【官方線上商店】'
   },
   {
     type: '線上',
-    src: '/img/news02.jpg',
+    src: '/maccha/img/news02.jpg',
     alt: '',
     date: '2024.06.01',
     content: '2024年父親節禮品已公開！【官方線上商店】'
   },
   {
     type: '新品',
-    src: '/img/news03.jpg',
+    src: '/maccha/img/news03.jpg',
     alt: '',
 
     date: '2024.06.01',
@@ -81,7 +81,7 @@ const newsList = ref([
   },
   {
     type: '預購',
-    src: '/img/news04.jpg',
+    src: '/maccha/img/news04.jpg',
     alt: '',
     date: '2024.06.01',
     content: 'MACCHA 會員限定月替甜點第3彈『宇治抹茶奶油泡芙』現已開放預訂。'
