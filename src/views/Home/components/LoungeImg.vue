@@ -1,5 +1,5 @@
 <template>
-  <div :class="[index % 2 !== 0 && 'md:order-last']" class="py-10">
+  <div :class="[props.index % 2 !== 0 && 'md:order-last']" class="py-10">
     <section ref="imgWrapperRefs" class="lounge-img-wrapper flex aspect-square gap-[.125rem]">
       <span
         v-for="(_, index) in 3"
@@ -57,9 +57,9 @@ const elements = ref<
     targetY: number
   }[]
 >([
-  { selector: null, initialY: 20, targetY: 0 },
-  { selector: null, initialY: -30, targetY: -10 },
-  { selector: null, initialY: 40, targetY: 10 }
+  { selector: null, initialY: 20, targetY: -30 },
+  { selector: null, initialY: -30, targetY: 40 },
+  { selector: null, initialY: 40, targetY: -20 }
 ])
 onMounted(() => {
   elements.value.forEach((element) => {
@@ -74,10 +74,10 @@ onMounted(() => {
         y: element.targetY,
         ease: 'power1.inOut',
         scrollTrigger: {
-          trigger: element.selector, // 指定用來觸發動畫的元素
-          start: 'top bottom', // 元件進入視窗底部時開始動畫
-          end: 'bottom top', // 元件完全離開視窗頂部時結束動畫
-          scrub: 1.7 // 動畫播放是否以視窗滾動播放
+          trigger: element.selector,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 1.7
         }
       }
     )

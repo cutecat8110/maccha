@@ -15,11 +15,7 @@
       </div>
 
       <div class="space-y-20 md:space-y-[7.5rem] lg:space-y-[12.5rem]">
-        <div
-          v-for="(lounge, index) in loungeList"
-          :key="index"
-          class="space-y-10 md:space-y-20"
-        >
+        <div v-for="(lounge, index) in loungeList" :key="index" class="space-y-10 md:space-y-20">
           <div
             :class="[
               index % 2 !== 0 ? 'lg:p-10 xl:p-20' : 'lg:p-10 xl:p-20',
