@@ -129,7 +129,10 @@ export default {
           light: '#FAF8F6'
         }
       },
-      fontFamily: {}
+      aspectRatio: {
+        '4/3': '4 / 3',
+        '3/4': '3 / 4',
+      },
     }
   },
   plugins: [

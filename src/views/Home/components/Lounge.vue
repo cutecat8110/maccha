@@ -5,7 +5,7 @@
       <span class="line-2"></span>
       <span class="line-3"></span>
     </div>
-    <div class="relative z-0 flex flex-col gap-y-20 md:container">
+    <div class="container relative z-0 flex flex-col gap-y-20">
       <SvgBamboo class="bamboo-r" />
 
       <!-- 標題 -->
@@ -18,11 +18,11 @@
         <div
           v-for="(lounge, index) in loungeList"
           :key="index"
-          class="space-y-10 md:space-y-20 lg:space-y-[7.5rem]"
+          class="space-y-10 md:space-y-20"
         >
           <div
             :class="[
-              index % 2 !== 0 ? 'lg:pr-10 xl:pr-20' : 'lg:pl-10 xl:pl-20',
+              index % 2 !== 0 ? 'lg:p-10 xl:p-20' : 'lg:p-10 xl:p-20',
               'grid grid-cols-1 items-center gap-10 md:grid-cols-2 lg:gap-x-20'
             ]"
           >
@@ -69,7 +69,7 @@
           <div
             :id="lounge.id"
             :ref="(el) => (lounge.mapRefs = el as HTMLElement | null)"
-            class="h-[25rem] lg:h-[30rem]"
+            class="h-[22.5rem] lg:h-[30rem]"
           />
         </div>
       </div>
