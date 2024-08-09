@@ -3,9 +3,9 @@
     <transition name="modal">
       <div
         v-if="isOpen"
-        class="fixed inset-0 z-[60] overflow-y-auto overflow-x-hidden bg-system-dark/40 backdrop-blur-xl"
+        class="fixed inset-0 z-[60] overflow-y-auto overflow-x-hidden bg-system-dark/60 backdrop-blur-xl"
       >
-        <div class="h-full bg-system-dark">
+        <div class="h-full">
           <slot />
         </div>
       </div>

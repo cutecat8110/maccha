@@ -8,8 +8,9 @@
         </router-link>
 
         <div class="flex w-full flex-col gap-6 lg:flex-row lg:px-0">
-          <!-- 按鈕．聯絡我們 -->
-          <UiButton state="outline">contact us</UiButton>
+          <!-- 聯絡我們 -->
+          <ContactUs />
+
           <!-- 連結．線上商店 -->
           <UiButton state="outline">
             online shop

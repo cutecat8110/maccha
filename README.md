@@ -15,7 +15,6 @@
 - [設計稿](https://www.figma.com/design/cIh6r51LX2ZPM78ezNH4YR/Maccha?node-id=0-1&t=pVNl1J6qQyzy6WAS-1)
 - [Demo](cutecat8110.github.io/maccha/)
 
-
 ## 🌸 啟動指南
 
 ```bash
@@ -64,29 +63,47 @@ npm run dev
 
 <table>
     <tbody>
-    <tr>
-        <td>
-        <a href="https://vueuse.org/"> VueUse </a>
-        </td>
-        <td>Vue 3 Composition API 的實用函數庫</td>
-    </tr>
-    <tr>
-        <td>
-        <a href="https://swiperjs.com/"> Swiper </a>
-        </td>
-        <td>輪播/滑動組件</td>
-    </tr>
-    <tr>
-        <td>
-        <a href="https://greensock.com/gsap/"> GSAP </a>
-        </td>
-        <td>高效動畫庫，用於創建平滑的動畫效果</td>
-    </tr>
-       <tr>
-        <td>
-        <a href="https://www.npmjs.com/package/@googlemaps/js-api-loader">Google Maps JavaScript</a>
-        </td>
-        <td>Google Maps 載入器，用於輕鬆載入地圖相關功能</td>
-    </tr>
+        <tr>
+            <td>
+                <a href="https://vueuse.org/"> VueUse </a>
+            </td>
+            <td>Vue 3 Composition API 的實用函數庫</td>
+        </tr>
+        <tr>
+            <td>
+                <a href="https://swiperjs.com/"> Swiper </a>
+            </td>
+            <td>輪播/滑動組件</td>
+        </tr>
+        <tr>
+            <td>
+                <a   a href="https://greensock.com/gsap/"> GSAP </a>
+            </td>
+            <td>高效動畫庫，用於創建平滑的動畫效果</td>
+        </tr>
+        <tr>
+            <td>
+                <a href="https://www.npmjs.com/package/@googlemaps/js-api-loader">Google Maps JavaScript</a>
+            </td>
+            <td>Google Maps 載入器，用於輕鬆載入地圖相關功能</td>
+        </tr>
+        <tr>
+            <td>
+                <a href="https://vcalendar.io/">v-calendar</a>
+            </td>
+            <td>功能豐富的日曆和日期選擇組件</td>
+        </tr>
+        <tr>
+            <td>
+                <a href="https://vee-validate.logaretm.com/v4/">vee-validate</a>
+            </td>
+            <td>Vue.js 表單驗證庫，簡化表單驗證的實現過程</td>
+        </tr>
+        <tr>
+            <td>
+                <a href="https://day.js.org/">dayjs</a>
+            </td>
+            <td>輕量級的日期處理庫</td>
+        </tr>
     </tbody>
 </table>

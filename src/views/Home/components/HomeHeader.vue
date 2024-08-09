@@ -70,7 +70,7 @@
       </UiButton>
 
       <UiModal v-model="isMenuOpen">
-        <div class="relative flex h-full items-center text-white">
+        <div class="relative flex min-h-full items-center text-white">
           <UiButton
             class="link-base absolute right-4 top-4"
             state="icon"

@@ -1,5 +1,5 @@
 <template>
-  <section class="common-section-padding relative min-h-screen bg-system-dark text-white">
+  <section class="common-section-padding relative bg-system-dark text-white">
     <!-- 背景裝飾．六芒星 -->
     <div class="lounge-bg">
       <span class="line-1"></span>

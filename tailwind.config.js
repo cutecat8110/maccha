@@ -118,6 +118,9 @@ export default {
             200: '#CABD8C',
             50: '#E2DCC1'
           },
+          danger: {
+            600: '#AB3B3A'
+          },
           gray: {
             800: '#222222',
             600: '#454545',
@@ -131,8 +134,8 @@ export default {
       },
       aspectRatio: {
         '4/3': '4 / 3',
-        '3/4': '3 / 4',
-      },
+        '3/4': '3 / 4'
+      }
     }
   },
   plugins: [
