@@ -1,11 +1,14 @@
 <template>
   <section class="common-section-padding relative min-h-screen bg-system-dark text-white">
+    <!-- 背景裝飾．六芒星 -->
     <div class="lounge-bg">
       <span class="line-1"></span>
       <span class="line-2"></span>
       <span class="line-3"></span>
     </div>
+
     <div class="container relative z-0 flex flex-col gap-y-20">
+      <!-- 背景裝飾．竹狀 -->
       <SvgBamboo class="bamboo-r" />
 
       <!-- 標題 -->
@@ -22,15 +25,17 @@
               'grid grid-cols-1 items-center gap-10 md:grid-cols-2 lg:gap-x-20'
             ]"
           >
-            <!-- 圖片 -->
+            <!-- 店圖照片 -->
             <LoungeImg :image="lounge.img" :index="index" />
 
             <!-- 店鋪資訊 -->
             <div class="lg:p-10">
+              <!-- 店名 -->
               <h3 class="mb-6 text-nowrap text-h6 text-system-gray-50 md:mb-10 lg:text-h4">
                 {{ lounge.name }}
               </h3>
 
+              <!-- 資訊 -->
               <div class="lounge-content mb-1">
                 <div>地址</div>
                 <div>{{ lounge.address }}</div>
@@ -46,6 +51,7 @@
                 <div>{{ lounge.parking }}</div>
               </div>
 
+              <!-- 連結．店鋪社群 -->
               <div class="flex justify-end">
                 <UiButton
                   class="link-base text-body-2 text-system-gray-50"
@@ -62,6 +68,7 @@
             </div>
           </div>
 
+          <!-- 店鋪 google 地圖 -->
           <div
             :id="lounge.id"
             :ref="(el) => (lounge.mapRefs = el as HTMLElement | null)"

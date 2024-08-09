@@ -1,7 +1,9 @@
 <template>
   <section class="common-section-padding bg-system-light">
     <div class="container relative flex flex-col gap-x-10 gap-y-10 md:grid md:grid-cols-12">
+      <!-- 背景裝飾．竹狀 -->
       <SvgBamboo class="bamboo-l" />
+
       <!-- 標題 -->
       <div class="flex flex-col items-center gap-y-6 md:col-span-3 md:gap-y-10 md:p-10 md:pb-20">
         <div class="flex flex-col items-center gap-y-6 space-y-2 md:gap-y-10">
