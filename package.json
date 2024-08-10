@@ -24,6 +24,7 @@
     "@vee-validate/i18n": "^4.13.2",
     "@vee-validate/rules": "^4.13.2",
     "@vueuse/core": "^10.11.0",
+    "aos": "^2.3.4",
     "dayjs": "^1.11.12",
     "gsap": "^3.12.5",
     "pinia": "^2.1.7",

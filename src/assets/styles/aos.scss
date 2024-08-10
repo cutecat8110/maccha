@@ -1,0 +1,77 @@
+@import 'aos/dist/aos.css';
+
+[data-aos='fade-left'] {
+  transform: translate3d(20px, 0, 0);
+}
+
+[data-aos='fade-right'] {
+  transform: translate3d(-15deg, 0, 0);
+}
+
+[data-aos='fade-up'] {
+  transform: translate3d(0, 20px, 0);
+}
+
+[data-aos='fade-down'] {
+  transform: translate3d(0, -20px, 0);
+}
+
+[data-aos='zoom-in-right'] {
+  transform: translate3d(-20px, 30px, 0) skewY(-15deg) skewX(0deg);
+}
+
+[data-aos='zoom-in-left'] {
+  transform: translate3d(20px, 30px, 0) skewY(15deg) skewX(0deg);
+}
+
+[data-aos='zoom-in-left-2'] {
+  transform: translate3d(30px, 50px, 0) skewY(0deg) skewX(10deg);
+}
+
+[data-aos='print'] {
+  clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+}
+
+[data-aos='print'].aos-animate {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+[data-aos='border'],
+[data-aos='border-2'] {
+  position: relative;
+}
+
+[data-aos='border'] > .line:nth-of-type(odd) {
+  transition:
+    width 1s ease,
+    height 1s ease;
+}
+
+[data-aos='border-2'] > .line {
+  transition: width 1s 0.2s cubic-bezier(0.79, 0.17, 0.15, 0.96);
+}
+
+[data-aos='border'] > .line:nth-of-type(even) {
+  transition:
+    width 1s ease 1s,
+    height 1s ease 1s;
+}
+
+[data-aos='border'].aos-animate > .line:nth-of-type(odd) {
+  height: 100%;
+}
+
+[data-aos='border'].aos-animate > .line:nth-of-type(even),
+[data-aos='border-2'].aos-animate > .line {
+  width: 100%;
+}
+
+[data-aos='zoom-in-right'],
+[data-aos='zoom-in-left'],
+[data-aos='zoom-in-left-2'] {
+  @media screen and (max-width: 768px) {
+    transform: none;
+    opacity: 0;
+    transition-property: opacity;
+  }
+}

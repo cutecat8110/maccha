@@ -17,6 +17,7 @@
         :navigation="{ nextEl: '.nextEl', prevEl: '.prevEl' }"
         :slides-per-view="slidesView"
         :space-between="40"
+        data-aos="fade-left"
       >
         <SwiperSlide v-for="(news, index) in newsList" :key="index">
           <NewsCard :news="news" />
@@ -33,7 +34,12 @@
 
       <!--  mobile．輪播 -->
       <div class="flex flex-col gap-y-6 md:hidden">
-        <NewsCard v-for="(news, index) in newsList.slice(0, 2)" :key="index" :news="news" />
+        <NewsCard
+          v-for="(news, index) in newsList.slice(0, 2)"
+          :key="index"
+          :news="news"
+          data-aos="fade"
+        />
       </div>
 
       <!--  連結．最新消息頁 -->

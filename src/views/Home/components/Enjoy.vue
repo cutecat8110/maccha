@@ -15,15 +15,15 @@
 
         <p
           class="md:text-vrl text-center text-body-2 leading-6 text-system-gray-600 md:text-start md:leading-8 md:tracking-[.5em] lg:text-body lg:leading-8 lg:tracking-[.5em]"
+          data-aos="zoom-in-right"
         >
           在忙碌生活中，<br />給自己片刻奢華的放鬆。
         </p>
       </div>
 
-      <div class="flex flex-col gap-y-6 md:col-span-9 lg:gap-y-10">
+      <div class="flex flex-col gap-y-6 md:col-span-9 lg:gap-y-10" data-aos="fade">
         <!--  輪播 -->
         <Swiper
-          class=""
           :autoplay="{
             delay: 5000
           }"
@@ -34,18 +34,28 @@
           @slideChange="onSlideChange"
           @swiper="onSwiper"
         >
-          <SwiperSlide v-for="(enjoy, index) in enjoyList" :key="index">
+          <SwiperSlide
+            v-for="(enjoy, index) in enjoyList"
+            :key="index"
+            class="active:cursor-grabbing"
+          >
             <img :src="enjoy.src" :alt="enjoy.alt" />
           </SwiperSlide>
         </Swiper>
 
         <!--  說明 -->
-        <div class="flex gap-4 text-title md:h-12 lg:gap-6 lg:text-h6">
-          <p>{{ `0${currentIndex + 1}.` }}</p>
-          <p class="lg:line-clamp-2">
-            {{ enjoyList[currentIndex].caption }}
-          </p>
-        </div>
+        <transition name="fade" mode="out-in">
+          <div
+            :key="currentIndex"
+            class="flex h-10 gap-4 text-title md:h-12 lg:gap-6 lg:text-h6"
+            data-aos="fade"
+          >
+            <p>{{ `0${currentIndex + 1}.` }}</p>
+            <p class="lg:line-clamp-2">
+              {{ enjoyList[currentIndex].caption }}
+            </p>
+          </div>
+        </transition>
       </div>
     </div>
   </section>
@@ -88,6 +98,22 @@ const onSlideChange = () => {
 </script>
 
 <style lang="scss" scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
+}
+
+.fade-enter-from {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+.fade-leave-to {
+  opacity: 0;
+  transform: translateX(20px);
+}
 :deep(.swiper) {
   @apply flex w-full flex-1 flex-col gap-y-4 lg:gap-y-6;
 }
@@ -99,7 +125,7 @@ const onSlideChange = () => {
 :deep(.swiper-pagination) {
   @apply static flex gap-x-2;
   .swiper-pagination-bullet {
-    @apply h-1 flex-1 cursor-pointer rounded-none bg-system-gray-50 opacity-100 transition-colors duration-500 md:w-20 md:flex-none;
+    @apply h-1 flex-1 cursor-pointer rounded-none bg-system-gray-50 opacity-100 transition-colors duration-500 hover:bg-system-gray-400 md:w-20 md:flex-none;
     &.swiper-pagination-bullet-active {
       @apply bg-system-gray-400;
     }

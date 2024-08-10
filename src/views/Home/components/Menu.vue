@@ -11,23 +11,28 @@
           <p class="section-sub-title">Menu</p>
         </div>
 
-        <p class="hidden text-body-2 text-system-gray-600 md:block">精選 MACCHA 篇章</p>
+        <p class="hidden text-body-2 text-system-gray-600 md:block" data-aos="fade-left">
+          精選 MACCHA 篇章
+        </p>
       </div>
 
       <!-- 單一菜單 -->
-      <div class="relative flex flex-col items-center gap-y-4 border border-system-gray-400 p-6">
+      <div
+        class="relative flex flex-col items-center gap-y-4 border border-system-gray-400 p-6"
+        data-aos="fade"
+      >
         <p
           class="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 bg-system-light px-5 text-tiny uppercase text-system-gray-600 lg:text-sub-title"
         >
           course menu
         </p>
-        <h3 class="text-h5 text-system-gray-800 lg:text-h3">
+        <h3 class="text-h5 text-system-gray-800 lg:text-h3" data-aos="fade-up">
           {{ menuSingle.name }}
         </h3>
-        <p class="menu-content">
+        <p class="menu-content" data-aos="fade-up">
           {{ menuSingle.content }}
         </p>
-        <p class="menu-price">
+        <p class="menu-price" data-aos="fade-up">
           {{ menuSingle.price }}
         </p>
       </div>
@@ -35,10 +40,14 @@
       <!-- 菜單列表 -->
       <div class="menu-section-wrapper">
         <!-- 菜單組 1 -->
-        <div class="menu-section">
+        <div class="menu-section overflow-hidden" data-aos="fade">
           <template v-for="(dish, index) in menuList.slice(0, 3)" :key="index">
-            <MenuCard class="flex-1 shrink-0" :dish="dish" />
-            <div v-if="index < 2" class="shrink-0 border-t border-dashed border-system-gray-400" />
+            <MenuCard class="flex-1 shrink-0" :dish="dish" data-aos="fade-right" />
+            <div
+              v-if="index < 2"
+              class="shrink-0 border-t border-dashed border-system-gray-400"
+              data-aos="fade-right"
+            />
           </template>
         </div>
 
@@ -46,10 +55,14 @@
         <div class="shrink-0 border-t border-dashed border-system-gray-400 md:hidden" />
 
         <!-- 菜單組 2 -->
-        <div class="menu-section">
+        <div class="menu-section overflow-hidden" data-aos="fade">
           <template v-for="(dish, index) in menuList.slice(3, 6)" :key="index">
-            <MenuCard class="flex-1 shrink-0" :dish="dish" />
-            <div v-if="index < 2" class="shrink-0 border-t border-dashed border-system-gray-400" />
+            <MenuCard class="flex-1 shrink-0" :dish="dish" data-aos="fade-right" />
+            <div
+              v-if="index < 2"
+              class="shrink-0 border-t border-dashed border-system-gray-400"
+              data-aos="fade-right"
+            />
           </template>
         </div>
 
@@ -58,7 +71,7 @@
       </div>
 
       <!-- 備註信息 -->
-      <p class="text-center text-tiny text-system-gray-600 md:text-start lg:text-body-2">
+      <p class="text-center text-tiny text-system-gray-600 md:text-start lg:text-body-2" data-aos="fade">
         ＊ 根據產量與季節變化，產品內容可能會有所調整。
       </p>
     </div>

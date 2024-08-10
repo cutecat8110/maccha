@@ -11,7 +11,10 @@
     <div class="common-section-padding flex min-h-full items-center text-white">
       <Teleport to="body">
         <UiButton
-          class="link-base fixed right-8 top-4 z-[61] text-white"
+          :class="[
+            hasScrollbar ? 'right-8 top-4' : 'right-4 top-4',
+            'link-base fixed z-[61] text-white'
+          ]"
           state="icon"
           @click="toggleContactUs(false)"
         >
@@ -25,14 +28,13 @@
         class="container flex flex-col items-center gap-y-14"
         @submit="confirmation()"
       >
-        {{ errors.visitDate }}
         <!-- 標題 -->
         <div class="space-y-2 text-center">
           <h2 class="section-title">聯絡我們</h2>
           <p class="section-sub-title text-system-main-400">contact us</p>
         </div>
 
-        <div class="contact-input-wrapper">
+        <div class="contact-input-wrapper" data-aos="fade-down">
           <!-- 來店日期 -->
           <label for="visitDate"> 來店日期 </label>
           <div class="relative">
@@ -280,6 +282,33 @@ const timeSlotOptions = ref([
 ])
 
 const shopOptions = ref(['本店', '文創店'])
+
+const scrollContainer = ref<HTMLElement | null>(null)
+
+const hasScrollbar = ref(false)
+
+const updateHasScrollbar = () => {
+  hasScrollbar.value = scrollContainer.value
+    ? scrollContainer.value.scrollHeight > scrollContainer.value.clientHeight
+    : false
+}
+
+watchEffect(() => {
+  if (isContactUsOpen.value) {
+    nextTick(() => {
+      scrollContainer.value = document.getElementById('ModalScrollWrapper')
+      updateHasScrollbar()
+    })
+  }
+})
+
+onMounted(() => {
+  window.addEventListener('resize', updateHasScrollbar)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('resize', updateHasScrollbar)
+})
 </script>
 
 <style lang="scss" scoped>
@@ -306,11 +335,11 @@ const shopOptions = ref(['本店', '文創店'])
   }
 
   .error-message {
-    @apply text-system-danger-600 absolute -top-[1.125rem] right-0 block text-end text-tiny font-bold;
+    @apply absolute -top-[1.125rem] right-0 block text-end text-tiny font-bold text-system-danger-600;
   }
 
   .required {
-    @apply text-system-danger-600 mt-1 text-sub-title;
+    @apply mt-1 text-sub-title text-system-danger-600;
   }
 }
 </style>

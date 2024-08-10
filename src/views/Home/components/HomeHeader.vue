@@ -52,16 +52,6 @@
         >
           lounge
         </UiButton>
-
-        <!-- 連結．線上商店 -->
-        <router-link class="link-base" to="/">
-          <UiButton tag="span">
-            <template #leading>
-              <SvgCart />
-            </template>
-            online shop
-          </UiButton>
-        </router-link>
       </nav>
 
       <!-- mobile．導航欄 -->
@@ -80,7 +70,7 @@
           </UiButton>
 
           <div class="container flex flex-col items-center gap-6">
-            <nav class="flex flex-col gap-2">
+            <nav class="flex flex-col gap-2" data-aos="fade-down">
               <UiButton
                 :class="[activeSection === 'story' && 'active']"
                 class="menu-btn"
@@ -133,14 +123,6 @@
             </nav>
 
             <!-- 連結．線上商店 -->
-            <router-link to="/" @click="toggleMenu(false)">
-              <UiButton state="outline" tag="span">
-                online shop
-                <template #trailing>
-                  <SvgCart />
-                </template>
-              </UiButton>
-            </router-link>
           </div>
         </div>
       </UiModal>

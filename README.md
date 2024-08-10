@@ -105,5 +105,11 @@ npm run dev
             </td>
             <td>輕量級的日期處理庫</td>
         </tr>
+        <tr>
+            <td>
+                <a href="https://michalsnik.github.io/aos/">AOS</a>
+            </td>
+            <td>簡單的捲動動畫庫，讓元素在滾動時觸發動畫效果</td>
+        </tr>
     </tbody>
 </table>

@@ -31,12 +31,18 @@
             <!-- 店鋪資訊 -->
             <div class="lg:p-10">
               <!-- 店名 -->
-              <h3 class="mb-6 text-nowrap text-h6 text-system-gray-50 md:mb-10 lg:text-h4">
+              <h3
+                class="mb-6 text-nowrap text-h6 text-system-gray-50 md:mb-10 lg:text-h4"
+                data-aos="fade-up"
+              >
                 {{ lounge.name }}
               </h3>
 
               <!-- 資訊 -->
-              <div class="lounge-content mb-1">
+              <div class="lounge-content mb-1" data-aos="border-2">
+                <span class="line absolute left-0 top-0 h-[1px] w-0 bg-system-gray-400"></span>
+                <span class="line absolute bottom-0 left-0 h-[1px] w-0 bg-system-gray-400"></span>
+
                 <div>地址</div>
                 <div>{{ lounge.address }}</div>
                 <div>電話號碼</div>
@@ -197,7 +203,7 @@ onMounted(() => {
 }
 
 .lounge-content {
-  @apply grid gap-4 border-y border-system-gray-400 py-6 md:gap-6 md:py-10;
+  @apply grid gap-4 py-6 md:gap-6 md:py-10;
   grid-template-columns: auto 1fr;
   :nth-child(odd) {
     @apply text-nowrap text-sub-title text-system-gray-200 lg:text-title;

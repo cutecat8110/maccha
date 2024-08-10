@@ -1,3 +1,4 @@
+import './assets/styles/aos.scss'
 import './assets/styles/swiper.css'
 import './assets/styles/tailwind.css'
 

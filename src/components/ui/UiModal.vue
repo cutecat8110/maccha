@@ -3,11 +3,10 @@
     <transition name="modal">
       <div
         v-if="isOpen"
+        id="ModalScrollWrapper"
         class="fixed inset-0 z-[60] overflow-y-auto overflow-x-hidden bg-system-dark/60 backdrop-blur-xl"
       >
-        <div class="h-full">
-          <slot />
-        </div>
+        <slot />
       </div>
     </transition>
   </Teleport>
@@ -24,10 +23,6 @@ const isOpen = defineModel<boolean>({
 /* 開啟彈窗鎖滾輪 */
 const isLocked = useScrollLock(document.body)
 watchEffect(() => (isLocked.value = isOpen.value))
-
-const close = () => {
-  isOpen.value = false
-}
 </script>
 
 <style lang="scss" scoped>
