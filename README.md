@@ -79,13 +79,13 @@ npm run dev
             <td>
                 <a   a href="https://greensock.com/gsap/"> GSAP </a>
             </td>
-            <td>高效動畫庫，用於創建平滑的動畫效果</td>
+            <td>高效動畫庫，創建平滑動畫效果</td>
         </tr>
         <tr>
             <td>
                 <a href="https://www.npmjs.com/package/@googlemaps/js-api-loader">Google Maps JavaScript</a>
             </td>
-            <td>Google Maps 載入器，用於輕鬆載入地圖相關功能</td>
+            <td>輕鬆載入地圖功能</td>
         </tr>
         <tr>
             <td>
@@ -97,19 +97,19 @@ npm run dev
             <td>
                 <a href="https://vee-validate.logaretm.com/v4/">vee-validate</a>
             </td>
-            <td>Vue.js 表單驗證庫，簡化表單驗證的實現過程</td>
+            <td>簡化表單驗證的 Vue.js 庫</td>
         </tr>
         <tr>
             <td>
                 <a href="https://day.js.org/">dayjs</a>
             </td>
-            <td>輕量級的日期處理庫</td>
+            <td>輕量級日期處理庫</td>
         </tr>
         <tr>
             <td>
                 <a href="https://michalsnik.github.io/aos/">AOS</a>
             </td>
-            <td>簡單的捲動動畫庫，讓元素在滾動時觸發動畫效果</td>
+            <td>捲動動畫庫，滾動時觸發動畫效果</td>
         </tr>
     </tbody>
 </table>
