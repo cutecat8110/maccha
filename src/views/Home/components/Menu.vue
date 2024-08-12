@@ -71,7 +71,10 @@
       </div>
 
       <!-- 備註信息 -->
-      <p class="text-center text-tiny text-system-gray-600 md:text-start lg:text-body-2" data-aos="fade">
+      <p
+        class="text-center text-tiny text-system-gray-600 md:text-start lg:text-body-2"
+        data-aos="fade"
+      >
         ＊ 根據產量與季節變化，產品內容可能會有所調整。
       </p>
     </div>

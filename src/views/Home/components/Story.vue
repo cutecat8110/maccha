@@ -64,7 +64,7 @@
 
         <!-- 功效介紹 -->
         <div
-          class="flex flex-col items-center gap-10 p-10 md:flex-row lg:gap-20 lg:p-20"
+          class="mx-3 flex w-full flex-col items-center gap-10 py-10 sm:mx-0 sm:w-auto sm:p-10 md:flex-row lg:gap-20 lg:p-20"
           data-aos="border"
         >
           <!-- 動效．框線 -->

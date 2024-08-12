@@ -13,7 +13,7 @@
 此專案旨在呈現網站設計和前端開發能力，從企劃、設計到前端皆獨立開發。<br/>採用 Vue.js 和 Tailwindcss 執行，強調 RWD 響應式設計及暗色視覺效果。專案涵蓋了網站架構、視覺設計和動效實現等，致力於創建一個直覺易用且具吸引力的抹茶主題形象網站。
 
 - [設計稿](https://www.figma.com/design/cIh6r51LX2ZPM78ezNH4YR/Maccha?node-id=0-1&t=pVNl1J6qQyzy6WAS-1)
-- [Demo](cutecat8110.github.io/maccha/)
+- [Demo](https://cutecat8110.github.io/maccha/)
 
 ## 🌸 啟動指南
 

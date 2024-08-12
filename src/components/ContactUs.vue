@@ -8,7 +8,7 @@
 
   <!-- mobile．聯絡我們 -->
   <UiModal v-model="isContactUsOpen">
-    <div class="common-section-padding flex min-h-full items-center text-white">
+    <div class="flex min-h-full items-center py-20 text-white">
       <Teleport to="body">
         <UiButton
           :class="[
@@ -22,225 +22,247 @@
         </UiButton>
       </Teleport>
 
-      <VForm
-        ref="formRefs"
-        v-slot="{ errors }"
-        class="container flex flex-col items-center gap-y-14"
-        @submit="confirmation()"
-      >
-        <!-- 標題 -->
-        <div class="space-y-2 text-center">
-          <h2 class="section-title">聯絡我們</h2>
-          <p class="section-sub-title text-system-main-400">contact us</p>
-        </div>
+      <VForm v-slot="{ errors, validate }" as="">
+        <form class="w-full" @submit="submitForm($event, validate)">
+          <div class="container flex flex-col items-center gap-y-14">
+            <!-- 標題 -->
+            <div class="space-y-2 text-center">
+              <h2 class="section-title">聯絡我們</h2>
+              <p class="section-sub-title text-system-main-400">contact us</p>
+            </div>
 
-        <div class="contact-input-wrapper" data-aos="fade-down">
-          <!-- 來店日期 -->
-          <label for="visitDate"> 來店日期 </label>
-          <div class="relative">
-            <VDatePicker
-              v-model.string="fromData.visitDate"
-              :masks="{
-                modelValue: 'YYYY/MM/DD'
-              }"
-              :min-date="$dayjs().format('YYYY/MM/DD')"
-            >
-              <template #default="{ inputValue, inputEvents }">
+            <div class="contact-input-wrapper" data-aos="fade-down">
+              <!-- 來店日期 -->
+              <label for="visitDate"> 來店日期 </label>
+              <div class="relative">
+                <VDatePicker
+                  v-model.string="fromData.visitDate"
+                  :masks="{
+                    modelValue: 'YYYY/MM/DD'
+                  }"
+                  :min-date="$dayjs().format('YYYY/MM/DD')"
+                >
+                  <template #default="{ inputValue, inputEvents }">
+                    <VField
+                      id="visitDate"
+                      v-model.trim="fromData.visitDate"
+                      v-on="inputEvents"
+                      :class="[
+                        errors.visitDate && '!bg-system-danger-600 focus:!text-white',
+                        'contact-input'
+                      ]"
+                      name="visitDate"
+                      label=" "
+                      type="text"
+                      :value="inputValue"
+                    />
+                  </template>
+                </VDatePicker>
+              </div>
+
+              <!-- 時段 -->
+              <label for="timeSlot"> 時段 </label>
+              <div class="relative">
                 <VField
-                  id="visitDate"
-                  v-model.trim="fromData.visitDate"
-                  v-on="inputEvents"
+                  id="timeSlot"
+                  v-model.trim="fromData.timeSlot"
                   :class="[
-                    errors.visitDate && '!bg-system-danger-600 focus:!text-white',
+                    errors.timeSlot && '!bg-system-danger-600 focus:!text-white',
+                    'contact-select peer'
+                  ]"
+                  name="timeSlot"
+                  label=" "
+                  as="select"
+                >
+                  <option value="" disabled>請選擇時段</option>
+                  <option v-for="(time, index) in timeSlotOptions" :key="index" :value="time">
+                    {{ time }}
+                  </option>
+                </VField>
+
+                <SvgArrow
+                  class="contact-select-appearance text-white peer-focus:-scale-x-100 peer-focus:text-system-gray-800"
+                />
+              </div>
+
+              <!-- 店舖 -->
+              <label for="shop">
+                店舖
+                <div class="required">必填</div>
+              </label>
+
+              <div id="shopWrapper" class="relative">
+                <VField
+                  id="shop"
+                  v-model.trim="fromData.shop"
+                  :class="[
+                    errors.shop && '!bg-system-danger-600 focus:!text-white',
+                    'contact-select peer'
+                  ]"
+                  name="shop"
+                  label=" "
+                  as="select"
+                  rules="required"
+                >
+                  <option :class="errors.shop && 'bg-system-light text-black'" value="" disabled>
+                    請選擇店舖
+                  </option>
+                  <option
+                    v-for="(shop, index) in shopOptions"
+                    :key="index"
+                    :class="errors.shop && 'bg-system-light text-black'"
+                    :value="shop"
+                  >
+                    {{ shop }}
+                  </option>
+                </VField>
+
+                <SvgArrow
+                  :class="[
+                    errors.shop && '!text-white',
+                    'contact-select-appearance text-white peer-focus:-scale-x-100 peer-focus:text-system-gray-800'
+                  ]"
+                />
+
+                <ErrorMessage class="error-message" name="shop" />
+              </div>
+
+              <!-- 姓名 -->
+              <label for="name"> 姓名 </label>
+              <VField
+                id="name"
+                v-model.trim="fromData.name"
+                :class="[errors.name && '!bg-system-danger-600 focus:!text-white', 'contact-input']"
+                name="name"
+                label=" "
+                type="text"
+              />
+
+              <!-- 電話 -->
+              <label for="phone">
+                電話
+                <div class="required">必填</div>
+              </label>
+              <div id="phoneWrapper" class="relative">
+                <VField
+                  id="phone"
+                  v-model.trim="fromData.phone"
+                  :class="[
+                    errors.phone && '!bg-system-danger-600 focus:!text-white',
                     'contact-input'
                   ]"
-                  name="visitDate"
+                  name="phone"
+                  label=" "
+                  type="phone"
+                  rules="required"
+                />
+                <ErrorMessage class="error-message" name="phone" />
+              </div>
+
+              <!-- 地址 -->
+              <label for="address"> 地址 </label>
+              <VField
+                id="address"
+                v-model.trim="fromData.address"
+                :class="[
+                  errors.address && '!bg-system-danger-600 focus:!text-white',
+                  'contact-input'
+                ]"
+                name="address"
+                label=" "
+                type="text"
+              />
+
+              <!-- E-mail -->
+              <label for="email">
+                E-mail
+                <div class="required">必填</div>
+              </label>
+              <div id="emailWrapper" class="relative">
+                <VField
+                  id="email"
+                  v-model.trim="fromData.email"
+                  :class="[
+                    errors.email && '!bg-system-danger-600 focus:!text-white',
+                    'contact-input'
+                  ]"
+                  name="email"
                   label=" "
                   type="text"
-                  :value="inputValue"
+                  rules="required|email"
                 />
-              </template>
-            </VDatePicker>
-          </div>
+                <ErrorMessage class="error-message" name="email" />
+              </div>
 
-          <!-- 時段 -->
-          <label for="timeSlot"> 時段 </label>
-          <div class="relative">
-            <VField
-              id="timeSlot"
-              v-model.trim="fromData.timeSlot"
-              :class="[
-                errors.timeSlot && '!bg-system-danger-600 focus:!text-white',
-                'contact-select peer'
-              ]"
-              name="timeSlot"
-              label=" "
-              as="select"
-            >
-              <option value="" disabled>請選擇時段</option>
-              <option v-for="(time, index) in timeSlotOptions" :key="index" :value="time">
-                {{ time }}
-              </option>
-            </VField>
+              <!-- 意見欄 -->
+              <label for="comments">
+                意見欄
+                <div class="required">必填</div>
+              </label>
+              <div id="commentsWrapper" class="relative">
+                <VField
+                  id="comments"
+                  v-model.trim="fromData.comments"
+                  :class="[
+                    errors.comments && '!bg-system-danger-600 focus:!text-white',
+                    'contact-textarea'
+                  ]"
+                  name="comments"
+                  label=" "
+                  as="textarea"
+                  rows="5"
+                  rules="required"
+                />
+                <ErrorMessage class="error-message" name="comments" />
+              </div>
+            </div>
 
-            <SvgArrow
-              class="contact-select-appearance text-white peer-focus:-scale-x-100 peer-focus:text-system-gray-800"
-            />
-          </div>
-
-          <!-- 店舖 -->
-          <label for="shop">
-            店舖
-            <div class="required">必填</div>
-          </label>
-
-          <div class="relative">
-            <VField
-              id="shop"
-              v-model.trim="fromData.shop"
-              :class="[
-                errors.shop && '!bg-system-danger-600 focus:!text-white',
-                'contact-select peer'
-              ]"
-              name="shop"
-              label=" "
-              as="select"
-              rules="required"
-            >
-              <option :class="errors.shop && 'bg-system-light text-black'" value="" disabled>
-                請選擇店舖
-              </option>
-              <option
-                v-for="(shop, index) in shopOptions"
-                :key="index"
-                :class="errors.shop && 'bg-system-light text-black'"
-                :value="shop"
+            <!-- 按鈕．送出 -->
+            <div class="flex justify-center pt-10">
+              <UiButton
+                class="h-12 w-full max-w-60 cursor-pointer rounded-none"
+                type="submit"
+                state="outline"
               >
-                {{ shop }}
-              </option>
-            </VField>
-
-            <SvgArrow
-              :class="[
-                errors.shop && '!text-white',
-                'contact-select-appearance text-white peer-focus:-scale-x-100 peer-focus:text-system-gray-800'
-              ]"
-            />
-
-            <ErrorMessage class="error-message" name="shop" />
+                confirmation
+                <template #trailing>
+                  <SvgMail />
+                </template>
+              </UiButton>
+            </div>
           </div>
-
-          <!-- 姓名 -->
-          <label for="name"> 姓名 </label>
-          <VField
-            id="name"
-            v-model.trim="fromData.name"
-            :class="[errors.name && '!bg-system-danger-600 focus:!text-white', 'contact-input']"
-            name="name"
-            label=" "
-            type="text"
-          />
-
-          <!-- 電話 -->
-          <label for="phone">
-            電話
-            <div class="required">必填</div>
-          </label>
-          <div class="relative">
-            <VField
-              id="phone"
-              v-model.trim="fromData.phone"
-              :class="[errors.phone && '!bg-system-danger-600 focus:!text-white', 'contact-input']"
-              name="phone"
-              label=" "
-              type="phone"
-              rules="required"
-            />
-            <ErrorMessage class="error-message" name="phone" />
-          </div>
-
-          <!-- 地址 -->
-          <label for="address"> 地址 </label>
-          <VField
-            id="address"
-            v-model.trim="fromData.address"
-            :class="[errors.address && '!bg-system-danger-600 focus:!text-white', 'contact-input']"
-            name="address"
-            label=" "
-            type="text"
-          />
-
-          <!-- E-mail -->
-          <label for="email">
-            E-mail
-            <div class="required">必填</div>
-          </label>
-          <div class="relative">
-            <VField
-              id="email"
-              v-model.trim="fromData.email"
-              :class="[errors.email && '!bg-system-danger-600 focus:!text-white', 'contact-input']"
-              name="email"
-              label=" "
-              type="text"
-              rules="required|email"
-            />
-            <ErrorMessage class="error-message" name="email" />
-          </div>
-
-          <!-- 意見欄 -->
-          <label for="comments">
-            意見欄
-            <div class="required">必填</div>
-          </label>
-          <div class="relative">
-            <VField
-              id="comments"
-              v-model.trim="fromData.comments"
-              :class="[
-                errors.comments && '!bg-system-danger-600 focus:!text-white',
-                'contact-textarea'
-              ]"
-              name="comments"
-              label=" "
-              as="textarea"
-              rows="5"
-              rules="required"
-            />
-            <ErrorMessage class="error-message" name="comments" />
-          </div>
-
-          <!-- 按鈕．送出 -->
-          <div class="col-span-2 flex justify-center pt-10">
-            <UiButton
-              class="h-12 w-full max-w-60 cursor-pointer rounded-none"
-              type="submit"
-              state="outline"
-            >
-              confirmation
-              <template #trailing>
-                <SvgMail />
-              </template>
-            </UiButton>
-          </div>
-        </div>
+        </form>
       </VForm>
     </div>
   </UiModal>
 </template>
 
 <script lang="ts" setup>
+import { gsap } from 'gsap'
+
 const isContactUsOpen = ref(false)
 
 const toggleContactUs = (event: boolean) => {
   isContactUsOpen.value = event
 }
 
-const confirmation = () => {
-  toggleContactUs(false)
-}
+const submitForm = async (event: Event, validate: Function) => {
+  event.preventDefault()
+  const result = await validate()
 
-const formRefs = ref<HTMLFormElement | null>(null)
+  if (!result.valid) {
+    Object.keys(result.errors).forEach((i: string) => {
+      const elem = document.getElementById(`${i}Wrapper`)
+      gsap
+        .timeline({ repeat: 1, yoyo: true })
+        .to(elem, { x: 1, duration: 0.1 })
+        .to(elem, { x: -2, duration: 0.1 })
+        .to(elem, { x: 4, duration: 0.1 })
+    })
+  } else {
+    toggleContactUs(false)
+  }
+}
 
 const fromData = ref({
   visitDate: '',

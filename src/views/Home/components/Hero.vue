@@ -11,10 +11,7 @@
         <UiButton href="#enjoy" state="outline" tag="a"> enjoy now </UiButton>
 
         <div class="absolute bottom-10 right-[3.25rem] origin-bottom-right rotate-90">
-          <div
-            class="flex items-center gap-4 text-body-2 uppercase leading-10"
-            data-aos="fade"
-          >
+          <div class="flex items-center gap-4 text-body-2 uppercase leading-10" data-aos="fade">
             scroll
             <div class="flex h-[1px] w-20 overflow-hidden">
               <span class="scroll-line"></span>

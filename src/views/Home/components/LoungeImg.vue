@@ -61,26 +61,33 @@ const elements = ref<
   { selector: null, initialY: -30, targetY: 40 },
   { selector: null, initialY: 40, targetY: -20 }
 ])
+
 onMounted(() => {
   elements.value.forEach((element) => {
-    gsap.fromTo(
-      element.selector,
-      {
-        backgroundPositionY: `${(element.initialY + 40) * -1}px`,
-        y: element.initialY
-      },
-      {
-        backgroundPositionY: `${(element.targetY + 40) * -1}px`,
-        y: element.targetY,
-        ease: 'power1.inOut',
-        scrollTrigger: {
-          trigger: element.selector,
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: 1.7
+    if (element.selector) {
+      gsap.fromTo(
+        element.selector,
+        {
+          backgroundPositionY: `${(element.initialY + 40) * -1}px`,
+          y: element.initialY
+        },
+        {
+          backgroundPositionY: `${(element.targetY + 40) * -1}px`,
+          y: element.targetY,
+          ease: 'power1.inOut',
+          scrollTrigger: {
+            trigger: element.selector,
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: 1.7
+          }
         }
-      }
-    )
+      )
+    }
   })
+
+  setTimeout(() => {
+    ScrollTrigger.refresh()
+  }, 0)
 })
 </script>
