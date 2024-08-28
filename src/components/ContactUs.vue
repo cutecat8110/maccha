@@ -11,10 +11,7 @@
     <div class="flex min-h-full items-center py-20 text-white">
       <Teleport to="body">
         <UiButton
-          :class="[
-            hasScrollbar ? 'right-8 top-4' : 'right-4 top-4',
-            'link-base fixed z-[61] text-white'
-          ]"
+          class="link-base fixed right-4 top-4 z-[61] text-white"
           state="icon"
           @click="toggleContactUs(false)"
         >
@@ -304,33 +301,6 @@ const timeSlotOptions = ref([
 ])
 
 const shopOptions = ref(['本店', '文創店'])
-
-const scrollContainer = ref<HTMLElement | null>(null)
-
-const hasScrollbar = ref(false)
-
-const updateHasScrollbar = () => {
-  hasScrollbar.value = scrollContainer.value
-    ? scrollContainer.value.scrollHeight > scrollContainer.value.clientHeight
-    : false
-}
-
-watchEffect(() => {
-  if (isContactUsOpen.value) {
-    nextTick(() => {
-      scrollContainer.value = document.getElementById('ModalScrollWrapper')
-      updateHasScrollbar()
-    })
-  }
-})
-
-onMounted(() => {
-  window.addEventListener('resize', updateHasScrollbar)
-})
-
-onUnmounted(() => {
-  window.removeEventListener('resize', updateHasScrollbar)
-})
 </script>
 
 <style lang="scss" scoped>
