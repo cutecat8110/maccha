@@ -1,0 +1,14 @@
+[
+  {
+    "weight": 400,
+    "original_bytes": 9958352,
+    "subset_bytes": 153636,
+    "characters": 787
+  },
+  {
+    "weight": 700,
+    "original_bytes": 9961168,
+    "subset_bytes": 157192,
+    "characters": 787
+  }
+]

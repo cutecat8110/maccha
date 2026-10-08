@@ -2,7 +2,7 @@
   <header :class="['header', isDark && 'is-dark']">
     <div class="container relative flex items-center justify-between py-3 lg:py-5">
       <!-- LOGO．連結．首頁 -->
-      <router-link class="link-base" to="/" @click="refreshPage">
+      <router-link class="link-base" to="/" aria-label="MACCHA 首頁" @click="refreshPage">
         <SvgLogo class="text-icon lg:text-logo-2" />
       </router-link>
 
@@ -55,15 +55,16 @@
       </nav>
 
       <!-- mobile．導航欄 -->
-      <UiButton class="link-base lg:hidden" state="icon" @click="toggleMenu(true)">
+      <UiButton class="link-base lg:hidden" state="icon" aria-label="開啟選單" :aria-expanded="isMenuOpen" aria-controls="mobile-menu" @click="toggleMenu(true)">
         <SvgMenu />
       </UiButton>
 
-      <UiModal v-model="isMenuOpen">
+      <UiModal id="mobile-menu" v-model="isMenuOpen" label="網站導覽">
         <div class="relative flex min-h-full items-center text-white">
           <UiButton
             class="link-base absolute right-4 top-4"
             state="icon"
+            aria-label="關閉選單"
             @click="toggleMenu(false)"
           >
             <SvgClose class="text-icon-close" />
@@ -131,7 +132,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useWindowScroll } from '@vueuse/core'
+import { useWindowScroll, useWindowSize } from '@vueuse/core'
 
 /* Logo 刷新 */
 const route = useRoute()
@@ -172,6 +173,8 @@ const isDark = computed(() => y.value > window.innerHeight / 5)
 
 /* menu */
 const isMenuOpen = ref(false)
+const { width } = useWindowSize()
+watch(width, (value) => { if (value >= 992) isMenuOpen.value = false })
 const toggleMenu = (event: boolean) => {
   isMenuOpen.value = event
 }

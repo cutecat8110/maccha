@@ -2,7 +2,7 @@
   <component
     :class="[
       props.block ? 'flex' : 'inline-flex',
-      'h-10 items-center justify-center gap-x-2 truncate transition-all duration-500',
+      'h-10 items-center justify-center gap-x-2 truncate transition-all duration-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-system-main-400',
       stateClass
     ]"
     :type="props.tag === 'button' ? 'button' : null"

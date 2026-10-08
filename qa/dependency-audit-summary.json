@@ -1,0 +1,133 @@
+{
+  "date": "2026-10-08",
+  "counts": {
+    "info": 0,
+    "low": 0,
+    "moderate": 7,
+    "high": 17,
+    "critical": 0,
+    "total": 24
+  },
+  "packages": [
+    {
+      "name": "@babel/runtime",
+      "severity": "moderate",
+      "direct": false
+    },
+    {
+      "name": "@vue/language-core",
+      "severity": "moderate",
+      "direct": false
+    },
+    {
+      "name": "ajv",
+      "severity": "moderate",
+      "direct": false
+    },
+    {
+      "name": "brace-expansion",
+      "severity": "high",
+      "direct": false
+    },
+    {
+      "name": "braces",
+      "severity": "high",
+      "direct": false
+    },
+    {
+      "name": "browserslist",
+      "severity": "high",
+      "direct": false
+    },
+    {
+      "name": "chokidar",
+      "severity": "high",
+      "direct": false
+    },
+    {
+      "name": "cross-spawn",
+      "severity": "high",
+      "direct": false
+    },
+    {
+      "name": "flatted",
+      "severity": "high",
+      "direct": false
+    },
+    {
+      "name": "glob",
+      "severity": "high",
+      "direct": false
+    },
+    {
+      "name": "immutable",
+      "severity": "high",
+      "direct": false
+    },
+    {
+      "name": "js-yaml",
+      "severity": "high",
+      "direct": false
+    },
+    {
+      "name": "lodash",
+      "severity": "high",
+      "direct": false
+    },
+    {
+      "name": "micromatch",
+      "severity": "high",
+      "direct": false
+    },
+    {
+      "name": "minimatch",
+      "severity": "high",
+      "direct": false
+    },
+    {
+      "name": "picomatch",
+      "severity": "high",
+      "direct": false
+    },
+    {
+      "name": "postcss-selector-parser",
+      "severity": "moderate",
+      "direct": false
+    },
+    {
+      "name": "sass",
+      "severity": "high",
+      "direct": true
+    },
+    {
+      "name": "tailwindcss",
+      "severity": "high",
+      "direct": true
+    },
+    {
+      "name": "unplugin",
+      "severity": "high",
+      "direct": false
+    },
+    {
+      "name": "unplugin-vue-components",
+      "severity": "high",
+      "direct": true
+    },
+    {
+      "name": "vue-template-compiler",
+      "severity": "moderate",
+      "direct": false
+    },
+    {
+      "name": "vue-tsc",
+      "severity": "moderate",
+      "direct": true
+    },
+    {
+      "name": "yaml",
+      "severity": "moderate",
+      "direct": false
+    }
+  ]
+}

@@ -7,6 +7,8 @@
         class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
         :src="props.news.src"
         :alt="props.news.alt"
+        loading="lazy"
+        decoding="async"
       />
     </div>
     <div class="space-y-2 p-6 text-sub-title lg:text-title">

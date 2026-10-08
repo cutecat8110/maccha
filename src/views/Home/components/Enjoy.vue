@@ -29,9 +29,13 @@
           }"
           :effect="'fade'"
           :loop="true"
-          :modules="[Autoplay, EffectFade, Pagination]"
+          :prevent-interaction-on-transition="true"
+          :modules="[Autoplay, EffectFade, Pagination, A11y]"
+          :a11y="{ paginationBulletMessage: '顯示第 {{index}} 張照片' }"
           :pagination="{ clickable: true }"
           @slideChange="onSlideChange"
+          @realIndexChange="onSlideChange"
+          @slideChangeTransitionEnd="onSlideChange"
           @swiper="onSwiper"
         >
           <SwiperSlide
@@ -39,7 +43,7 @@
             :key="index"
             class="active:cursor-grabbing"
           >
-            <img :src="enjoy.src" :alt="enjoy.alt" />
+            <img :src="enjoy.src" :alt="enjoy.alt" loading="lazy" decoding="async" width="960" height="540" />
           </SwiperSlide>
         </Swiper>
 
@@ -47,7 +51,7 @@
         <transition name="fade" mode="out-in">
           <div
             :key="currentIndex"
-            class="flex h-10 gap-4 text-title md:h-12 lg:gap-6 lg:text-h6"
+            class="flex min-h-10 gap-4 text-title md:min-h-12 lg:gap-6 lg:text-h6"
             data-aos="fade"
           >
             <p>{{ `0${currentIndex + 1}.` }}</p>
@@ -62,7 +66,7 @@
 </template>
 
 <script lang="ts" setup>
-import { Autoplay, EffectFade, Pagination } from 'swiper/modules'
+import { Autoplay, EffectFade, Pagination, A11y } from 'swiper/modules'
 import type { Swiper } from 'swiper/types'
 const enjoyList = ref([
   {
@@ -83,17 +87,16 @@ const enjoyList = ref([
 ])
 
 /* 輪播 refs init */
-const enjoySwiperRefs = ref<null | Swiper>(null)
+const enjoySwiperRefs = shallowRef<null | Swiper>(null)
 const onSwiper = (swiper: Swiper) => {
   enjoySwiperRefs.value = swiper
+  currentIndex.value = swiper.realIndex
 }
 
 /* 當前輪播 */
 const currentIndex = ref(0)
-const onSlideChange = () => {
-  if (enjoySwiperRefs.value) {
-    currentIndex.value = enjoySwiperRefs.value.realIndex
-  }
+const onSlideChange = (swiper: Swiper) => {
+  currentIndex.value = swiper.realIndex
 }
 </script>
 

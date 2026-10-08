@@ -11,26 +11,29 @@
       </div>
 
       <!--  desktop．輪播 -->
+      <div class="relative hidden md:block" data-aos="fade-left">
       <Swiper
-        class="relative hidden w-full overflow-visible md:block"
-        :modules="[Navigation]"
-        :navigation="{ nextEl: '.nextEl', prevEl: '.prevEl' }"
+        class="w-full overflow-hidden"
+        :modules="[Navigation, A11y]"
+        :navigation="{ nextEl: '.nextEl', prevEl: '.prevEl', addIcons: false }"
         :slides-per-view="slidesView"
         :space-between="40"
-        data-aos="fade-left"
+        :a11y="{ prevSlideMessage: '上一則消息', nextSlideMessage: '下一則消息' }"
       >
         <SwiperSlide v-for="(news, index) in newsList" :key="index">
           <NewsCard :news="news" />
         </SwiperSlide>
 
+      </Swiper>
+
         <!--  輪播控制器 -->
-        <UiButton class="prevEl" state="icon">
+        <UiButton class="prevEl" state="icon" aria-label="上一則消息">
           <SvgArrow class="rotate-180" />
         </UiButton>
-        <UiButton class="nextEl" state="icon">
+        <UiButton class="nextEl" state="icon" aria-label="下一則消息">
           <SvgArrow />
         </UiButton>
-      </Swiper>
+      </div>
 
       <!--  mobile．輪播 -->
       <div class="flex flex-col gap-y-6 md:hidden">
@@ -60,7 +63,7 @@
 <script lang="ts" setup>
 import SvgArrow from '@/components/svg/SvgArrow.vue'
 import { useWindowSize } from '@vueuse/core'
-import { Navigation } from 'swiper/modules'
+import { Navigation, A11y } from 'swiper/modules'
 import NewsCard from './NewsCard.vue'
 
 const newsList = ref([
@@ -98,7 +101,7 @@ const newsList = ref([
 /* 輪播 RWD 數量 */
 const { width } = useWindowSize()
 const slidesView = computed(() => {
-  return width.value > 992 ? 3 : 2
+  return width.value >= 992 ? 3 : 2
 })
 </script>
 

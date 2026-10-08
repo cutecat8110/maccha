@@ -1,6 +1,6 @@
 # Maccha - 抹茶形象官網
 
-![Node](https://img.shields.io/badge/Node.js-v20.15.0-brightgreen.svg)
+![Node](https://img.shields.io/badge/Node.js-v22.23.3-brightgreen.svg)
 ![Vue](https://img.shields.io/badge/Vue.js-v3-blue.svg)
 ![Tailwindcss](https://img.shields.io/badge/Tailwindcss-v3-deepskyblue.svg)
 
@@ -15,22 +15,29 @@
 - [設計稿](https://www.figma.com/design/cIh6r51LX2ZPM78ezNH4YR/Maccha?node-id=0-1&t=pVNl1J6qQyzy6WAS-1)
 - [Demo](https://cutecat8110.github.io/maccha/)
 
-## 🌸 啟動指南
+## 🌸 啟動、QA 與部署
+
+使用 `.node-version` 指定的 Node 22.23.3：
 
 ```bash
-# 取得專案
-git clone https://github.com/cutecat8110/maccha.git
-
-# 設定環境
-# 複製 .env.example 改為 .env
-cp .env.example .env
-
-# 安裝依賴
-npm install
-
-# 啟動開發環境
+npm ci
 npm run dev
+npm test
+npm run type-check
+npm run lint
+npm run build
+npm run preview -- --host 127.0.0.1
 ```
+
+- 網站使用 `/maccha/` 路徑，正式產物輸出至 `docs/`；GitHub Pages 使用 `portfolio/qa` 分支的 `/docs`。
+- 原版提交為 `c7d29ef3f163b28b0647f45fca629e2937fcc8c5`。需要回復時，可將 Pages 來源改回 `main`、`/docs`。
+- `VITE_API_KEY` 為 Google Maps **瀏覽器用** API key，會進入公開產物；應在 Google Cloud 限制網站來源與可使用的 API。不要在任何 `VITE_*` 變數放入伺服器秘密。現有地圖設定沿用，沒有更動帳務或配額。
+- 本機可用 `.env.local` 覆寫地圖設定；未設定 key 或 SDK 載入失敗時提供位置連結。測試會 mock 地圖 SDK，不呼叫 Google API。
+- 聯絡表單原本只驗證輸入並關閉，沒有寄信、訂位或後端儲存；新聞卡片與 VIEW ALL 也保留原有展示行為。
+- 保留原字型、圖片及裁切方式。非首屏圖片延後載入，地圖接近店鋪區時才初始化。
+- `src/assets/fonts/*-site.woff2` 由原字型建立常用字集；完整 TTF 保留作為其他輸入字元的備援。修改網站文案後，可於安裝 `fonttools[woff]` 的 Python 環境執行 `python qa/build-font-subsets.py`，再重新 build。腳本及產物已提交，一般啟動不需要 Python。
+
+完整修正編號、兩輪測試、截圖與限制：[QA_CHANGELOG.md](QA_CHANGELOG.md)。
 
 ## 🔨 核心技術
 

@@ -7,17 +7,18 @@
   </UiButton>
 
   <!-- mobile．聯絡我們 -->
-  <UiModal v-model="isContactUsOpen">
-    <div class="flex min-h-full items-center py-20 text-white">
-      <Teleport to="body">
+  <UiModal v-model="isContactUsOpen" label="聯絡我們">
+      <template #close>
         <UiButton
-          class="link-base fixed right-4 top-4 z-[61] text-white"
+          class="link-base absolute right-4 top-4 z-[1] text-white"
           state="icon"
+          aria-label="關閉聯絡我們"
           @click="toggleContactUs(false)"
         >
           <SvgClose class="text-icon-close" />
         </UiButton>
-      </Teleport>
+      </template>
+    <div class="flex min-h-full items-center py-20 text-white">
 
       <VForm v-slot="{ errors, validate }" as="">
         <form class="w-full" @submit="submitForm($event, validate)">
@@ -150,7 +151,8 @@
                   ]"
                   name="phone"
                   label=" "
-                  type="phone"
+                  type="tel"
+                  autocomplete="tel"
                   rules="required"
                 />
                 <ErrorMessage class="error-message" name="phone" />
@@ -185,7 +187,8 @@
                   ]"
                   name="email"
                   label=" "
-                  type="text"
+                  type="email"
+                  autocomplete="email"
                   rules="required|email"
                 />
                 <ErrorMessage class="error-message" name="email" />
@@ -243,19 +246,30 @@ const toggleContactUs = (event: boolean) => {
   isContactUsOpen.value = event
 }
 
-const submitForm = async (event: Event, validate: Function) => {
+let validating = false
+const animations = new Map<string, gsap.core.Timeline>()
+const submitForm = async (event: Event, validate: () => Promise<{ valid: boolean; errors: Record<string, string> }>) => {
   event.preventDefault()
+  if (validating) return
+  validating = true
   const result = await validate()
+  validating = false
+  if (!isContactUsOpen.value) return
 
   if (!result.valid) {
     Object.keys(result.errors).forEach((i: string) => {
       const elem = document.getElementById(`${i}Wrapper`)
-      gsap
+      if (!elem) return
+      animations.get(i)?.kill()
+      gsap.set(elem, { x: 0 })
+      const animation = gsap
         .timeline({ repeat: 1, yoyo: true })
         .to(elem, { x: 1, duration: 0.1 })
         .to(elem, { x: -2, duration: 0.1 })
         .to(elem, { x: 4, duration: 0.1 })
+      animations.set(i, animation)
     })
+    document.getElementById(Object.keys(result.errors)[0])?.focus()
   } else {
     toggleContactUs(false)
   }
@@ -271,6 +285,8 @@ const fromData = ref({
   email: '',
   comments: ''
 })
+
+onBeforeUnmount(() => animations.forEach((animation) => animation.kill()))
 
 watchEffect(() => {
   if (isContactUsOpen.value == false) {
@@ -306,7 +322,9 @@ const shopOptions = ref(['本店', '文創店'])
 <style lang="scss" scoped>
 .contact-input-wrapper {
   @apply grid w-full max-w-[33.75rem] items-center gap-x-10 gap-y-6;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: auto minmax(0, 1fr);
+
+  > * { min-width: 0; }
 
   label {
     @apply text-title text-system-gray-50;

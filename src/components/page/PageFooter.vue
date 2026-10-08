@@ -3,7 +3,7 @@
     <div class="container flex flex-col gap-y-10 lg:flex-row lg:justify-between">
       <div class="flex flex-col items-center gap-y-10 lg:items-start">
         <!-- LOGO．連結．首頁 -->
-        <router-link class="link-base" to="/" @click="refreshPage">
+        <router-link class="link-base" to="/" aria-label="MACCHA 首頁" @click="refreshPage">
           <SvgLogo class="text-logo-2 lg:text-logo" />
         </router-link>
 
@@ -19,6 +19,8 @@
           <UiButton
             class="link-base"
             href="https://www.facebook.com/cutecat8110"
+            aria-label="Facebook"
+            rel="noopener noreferrer"
             state="icon"
             tag="a"
             target="_blank"
@@ -28,6 +30,8 @@
           <UiButton
             class="link-base"
             href="https://instagram.com/cutecat8110"
+            aria-label="Instagram"
+            rel="noopener noreferrer"
             state="icon"
             tag="a"
             target="_blank"
@@ -37,6 +41,8 @@
           <UiButton
             class="link-base"
             href="https://x.com/cutecat8110"
+            aria-label="X"
+            rel="noopener noreferrer"
             state="icon"
             tag="a"
             target="_blank"
@@ -46,6 +52,8 @@
           <UiButton
             class="link-base"
             href="https://github.com/cutecat8110/maccha"
+            aria-label="GitHub"
+            rel="noopener noreferrer"
             state="icon"
             tag="a"
             target="_blank"

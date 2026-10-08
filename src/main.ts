@@ -1,6 +1,7 @@
 import './assets/styles/aos.scss'
 import './assets/styles/swiper.css'
 import './assets/styles/tailwind.css'
+import './assets/styles/font-subsets.css'
 
 /* Vee Validate */
 import { localize, setLocale } from '@vee-validate/i18n'

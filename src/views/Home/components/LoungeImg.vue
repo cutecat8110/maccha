@@ -8,7 +8,7 @@
         :class="[`con-${index}`, 'h-full bg-no-repeat']"
         :style="{
           width: `${imgWidth}px`,
-          backgroundImage: `url(${props.image})`,
+          backgroundImage: isNear ? `url(${props.image})` : undefined,
           backgroundPositionX: `${positionX[index]}`,
           backgroundSize: `auto ${height + 80}px`
         }"
@@ -18,7 +18,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useElementSize } from '@vueuse/core'
+import { useElementSize, useIntersectionObserver } from '@vueuse/core'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
@@ -36,6 +36,12 @@ const props = defineProps({
 
 const imgWrapperRefs = ref(null)
 const { width, height } = useElementSize(imgWrapperRefs)
+const isNear = ref(false)
+const { stop } = useIntersectionObserver(imgWrapperRefs, (entries) => {
+  if (entries.some((entry) => entry.isIntersecting)) { isNear.value = true; stop() }
+}, { rootMargin: '600px' })
+const animations: gsap.core.Tween[] = []
+let refreshFrame = 0
 
 /* 圖片 1/3 寬 */
 const imgWidth = computed(() => {
@@ -65,7 +71,7 @@ const elements = ref<
 onMounted(() => {
   elements.value.forEach((element) => {
     if (element.selector) {
-      gsap.fromTo(
+      animations.push(gsap.fromTo(
         element.selector,
         {
           backgroundPositionY: `${(element.initialY + 40) * -1}px`,
@@ -82,12 +88,14 @@ onMounted(() => {
             scrub: 1.7
           }
         }
-      )
+      ))
     }
   })
 
-  setTimeout(() => {
-    ScrollTrigger.refresh()
-  }, 0)
+  refreshFrame = requestAnimationFrame(() => ScrollTrigger.refresh())
+})
+onBeforeUnmount(() => {
+  cancelAnimationFrame(refreshFrame)
+  animations.forEach((animation) => { animation.scrollTrigger?.kill(); animation.kill() })
 })
 </script>

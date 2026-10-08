@@ -5,7 +5,7 @@
         <div class="space-y-2" data-aos="print" data-aos-delay="500" data-aos-duration="2000">
           <h1 class="text-h3 lg:text-h1">宇治抹茶新篇章</h1>
           <p class="text-title capitalize text-system-main-400 lg:text-h6">
-            for maccha lovers project
+            for&nbsp;maccha&nbsp;lovers&nbsp;project
           </p>
         </div>
         <UiButton href="#enjoy" state="outline" tag="a"> enjoy now </UiButton>

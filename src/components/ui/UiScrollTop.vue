@@ -4,6 +4,7 @@
       v-if="scrollTopIsShow"
       class="ui-scroll-top fixed bottom-3 right-3 md:bottom-6 md:right-6 2xl:bottom-10 2xl:right-10"
       state="icon"
+      aria-label="回到頂端"
       @click="scrollTop()"
     >
       <SvgKeyboardArrowUp />

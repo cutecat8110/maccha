@@ -1,5 +1,5 @@
 <template>
-  <section class="common-section-padding relative bg-system-dark text-white">
+  <section ref="section" class="common-section-padding relative bg-system-dark text-white">
     <!-- 背景裝飾．六芒星 -->
     <div class="lounge-bg">
       <span class="line-1"></span>
@@ -78,8 +78,14 @@
           <div
             :id="lounge.id"
             :ref="(el) => (lounge.mapRefs = el as HTMLElement | null)"
-            class="h-[22.5rem] lg:h-[30rem]"
-          />
+            class="relative h-[22.5rem] lg:h-[30rem]"
+            :aria-label="`${lounge.name}地圖`"
+          >
+            <div v-if="mapError" class="flex h-full flex-col items-center justify-center gap-4 text-center">
+              <p>地圖暫時無法載入</p>
+              <a class="underline" :href="`https://www.google.com/maps/search/?api=1&query=${lounge.location.lat},${lounge.location.lng}`" target="_blank" rel="noopener noreferrer">在 Google 地圖查看位置</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -122,15 +128,20 @@ const loungeList = ref([
 
 // ApiKey
 const apiKey = import.meta.env.VITE_API_KEY
-const loader = new Loader({
-  apiKey,
-  version: 'weekly'
-})
+const section = ref<HTMLElement | null>(null)
+const mapError = ref(false)
+let active = true
+let started = false
+let observer: IntersectionObserver | undefined
 
-// 實例化
-onMounted(() => {
-  loader.importLibrary('maps').then(async () => {
-    const { Map } = (await google.maps.importLibrary('maps')) as google.maps.MapsLibrary
+async function loadMaps() {
+  if (started) return
+  started = true
+  if (!apiKey) { mapError.value = true; return }
+  try {
+    const loader = new Loader({ apiKey, version: 'weekly' })
+    const { Map } = await loader.importLibrary('maps')
+    if (!active) return
 
     loungeList.value.forEach((element) => {
       const map = new Map(element.mapRefs as HTMLElement, {
@@ -157,8 +168,22 @@ onMounted(() => {
         title: 'point'
       })
     })
-  })
+  } catch {
+    if (active) mapError.value = true
+  }
+}
+
+onMounted(() => {
+  if (!('IntersectionObserver' in window)) { void loadMaps(); return }
+  observer = new IntersectionObserver((entries) => {
+    if (entries.some((entry) => entry.isIntersecting)) {
+      observer?.disconnect()
+      void loadMaps()
+    }
+  }, { rootMargin: '600px' })
+  if (section.value) observer.observe(section.value)
 })
+onBeforeUnmount(() => { active = false; observer?.disconnect() })
 </script>
 
 <style lang="scss" scoped>
