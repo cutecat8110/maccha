@@ -17,7 +17,7 @@
           <article class="story-content">
             <!-- 圖片 -->
             <div class="aspect-square md:order-last" data-aos="fade">
-              <img loading="lazy" decoding="async" class="story-img" src="/img/story01.jpg" alt="抹茶粉、竹製刷子和抹茶茶碗" />
+              <img loading="lazy" decoding="async" class="story-img" src="/img/story01.webp" alt="抹茶粉、竹製刷子和抹茶茶碗" />
             </div>
 
             <!-- 文字 -->
@@ -35,7 +35,7 @@
           <article class="story-content">
             <!-- 圖片 -->
             <div class="aspect-square" data-aos="fade">
-              <img loading="lazy" decoding="async" class="story-img" src="/img/story02.jpg" alt="一盤抹茶粉、盛滿抹茶粉的湯杓" />
+              <img loading="lazy" decoding="async" class="story-img" src="/img/story02.webp" alt="一盤抹茶粉、盛滿抹茶粉的湯杓" />
             </div>
 
             <!-- 文字 -->
@@ -57,7 +57,7 @@
         <div class="relative" data-aos="fade">
           <img loading="lazy" decoding="async"
             class="absolute top-1/2 z-0 max-w-[50vw] -translate-x-1/2 -translate-y-1/2"
-            src="/img/decoration.png"
+            src="/img/decoration.webp"
             alt="網狀背景裝飾"
           />
         </div>
@@ -93,7 +93,7 @@
         <div class="relative" data-aos="fade">
           <img loading="lazy" decoding="async"
             class="absolute top-1/2 z-0 max-w-[50vw] -translate-x-1/2 -translate-y-1/2"
-            src="/img/decoration.png"
+            src="/img/decoration.webp"
             alt="網狀背景裝飾"
           />
         </div>
@@ -109,7 +109,7 @@
           <article class="story-content">
             <!-- 圖片 -->
             <div class="aspect-square" data-aos="fade">
-              <img loading="lazy" decoding="async" class="story-img" src="/img/story03.jpg" alt="抹茶茶園" />
+              <img loading="lazy" decoding="async" class="story-img" src="/img/story03.webp" alt="抹茶茶園" />
             </div>
 
             <!-- 文字 -->
@@ -145,7 +145,7 @@
           <article class="story-content">
             <!-- 圖片 -->
             <div class="aspect-square md:order-last" data-aos="fade">
-              <img loading="lazy" decoding="async" class="story-img" src="/img/story04.jpg" alt="抹茶茶園" />
+              <img loading="lazy" decoding="async" class="story-img" src="/img/story04.webp" alt="抹茶茶園" />
             </div>
 
             <!-- 文字 -->

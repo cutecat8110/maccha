@@ -1,0 +1,122 @@
+[
+  {
+    "source": "public/img/decoration.png",
+    "target": "public/img/decoration.webp",
+    "width": 690,
+    "height": 690,
+    "originalBytes": 73891,
+    "optimizedBytes": 24504
+  },
+  {
+    "source": "public/img/enjoy01.jpg",
+    "target": "public/img/enjoy01.webp",
+    "width": 960,
+    "height": 540,
+    "originalBytes": 139476,
+    "optimizedBytes": 39730
+  },
+  {
+    "source": "public/img/enjoy02.jpg",
+    "target": "public/img/enjoy02.webp",
+    "width": 960,
+    "height": 540,
+    "originalBytes": 181950,
+    "optimizedBytes": 48338
+  },
+  {
+    "source": "public/img/enjoy03.jpg",
+    "target": "public/img/enjoy03.webp",
+    "width": 960,
+    "height": 540,
+    "originalBytes": 291338,
+    "optimizedBytes": 110022
+  },
+  {
+    "source": "public/img/hero.jpg",
+    "target": "public/img/hero.webp",
+    "width": 2560,
+    "height": 2560,
+    "originalBytes": 861673,
+    "optimizedBytes": 265252
+  },
+  {
+    "source": "public/img/lounge01.jpg",
+    "target": "public/img/lounge01.webp",
+    "width": 640,
+    "height": 480,
+    "originalBytes": 78202,
+    "optimizedBytes": 22266
+  },
+  {
+    "source": "public/img/lounge02.jpg",
+    "target": "public/img/lounge02.webp",
+    "width": 640,
+    "height": 480,
+    "originalBytes": 106009,
+    "optimizedBytes": 34548
+  },
+  {
+    "source": "public/img/news01.jpg",
+    "target": "public/img/news01.webp",
+    "width": 480,
+    "height": 480,
+    "originalBytes": 95909,
+    "optimizedBytes": 35922
+  },
+  {
+    "source": "public/img/news02.jpg",
+    "target": "public/img/news02.webp",
+    "width": 480,
+    "height": 480,
+    "originalBytes": 78551,
+    "optimizedBytes": 28970
+  },
+  {
+    "source": "public/img/news03.jpg",
+    "target": "public/img/news03.webp",
+    "width": 480,
+    "height": 480,
+    "originalBytes": 140087,
+    "optimizedBytes": 51202
+  },
+  {
+    "source": "public/img/news04.jpg",
+    "target": "public/img/news04.webp",
+    "width": 480,
+    "height": 480,
+    "originalBytes": 141160,
+    "optimizedBytes": 61702
+  },
+  {
+    "source": "public/img/story01.jpg",
+    "target": "public/img/story01.webp",
+    "width": 640,
+    "height": 640,
+    "originalBytes": 223111,
+    "optimizedBytes": 95172
+  },
+  {
+    "source": "public/img/story02.jpg",
+    "target": "public/img/story02.webp",
+    "width": 640,
+    "height": 640,
+    "originalBytes": 117902,
+    "optimizedBytes": 41230
+  },
+  {
+    "source": "public/img/story03.jpg",
+    "target": "public/img/story03.webp",
+    "width": 640,
+    "height": 640,
+    "originalBytes": 131770,
+    "optimizedBytes": 43478
+  },
+  {
+    "source": "public/img/story04.jpg",
+    "target": "public/img/story04.webp",
+    "width": 640,
+    "height": 640,
+    "originalBytes": 220364,
+    "optimizedBytes": 96448
+  }
+]

@@ -1,0 +1,58 @@
+[
+  {
+    "project": "maccha",
+    "width": 320,
+    "height": 844,
+    "broken": 0,
+    "scrollWidth": 320
+  },
+  {
+    "project": "maccha",
+    "width": 375,
+    "height": 844,
+    "broken": 0,
+    "scrollWidth": 375
+  },
+  {
+    "project": "maccha",
+    "width": 390,
+    "height": 844,
+    "broken": 0,
+    "scrollWidth": 390
+  },
+  {
+    "project": "maccha",
+    "width": 768,
+    "height": 1024,
+    "broken": 0,
+    "scrollWidth": 768
+  },
+  {
+    "project": "maccha",
+    "width": 769,
+    "height": 1024,
+    "broken": 0,
+    "scrollWidth": 769
+  },
+  {
+    "project": "maccha",
+    "width": 1024,
+    "height": 768,
+    "broken": 0,
+    "scrollWidth": 1024
+  },
+  {
+    "project": "maccha",
+    "width": 1440,
+    "height": 900,
+    "broken": 0,
+    "scrollWidth": 1440
+  },
+  {
+    "project": "maccha",
+    "width": 844,
+    "height": 390,
+    "broken": 0,
+    "scrollWidth": 844
+  }
+]

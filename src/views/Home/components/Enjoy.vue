@@ -70,17 +70,17 @@ import { Autoplay, EffectFade, Pagination, A11y } from 'swiper/modules'
 import type { Swiper } from 'swiper/types'
 const enjoyList = ref([
   {
-    src: '/maccha/img/enjoy01.jpg',
+    src: '/maccha/img/enjoy01.webp',
     alt: '調製抹茶拿鐵的過程，將牛奶倒入冰抹茶中',
     caption: '進門即可享受專屬的外帶飲品服務，體驗尊榮款待。'
   },
   {
-    src: '/maccha/img/enjoy02.jpg',
+    src: '/maccha/img/enjoy02.webp',
     alt: '室內的玻璃窗戶前掛著一串小燈泡，反映窗外綠意',
     caption: '抬頭所見，柔和燈光映襯精緻設計的菜單，為每個選擇增添儀式感。'
   },
   {
-    src: '/maccha/img/enjoy03.jpg',
+    src: '/maccha/img/enjoy03.webp',
     alt: '現代咖啡廳的內部設計，有木質窗戶和舒適的座椅區',
     caption: '溫馨舒適的座位區，讓您在優雅的氛圍中盡情放鬆，享受片刻的寧靜。'
   }

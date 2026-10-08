@@ -26,7 +26,7 @@
 <style lang="scss" scoped>
 .hero-wrapper {
   @apply h-screen bg-system-gray-600;
-  background: url('/img/hero.jpg') center/cover no-repeat;
+  background: url('/img/hero.webp') center/cover no-repeat;
 }
 
 .mask {

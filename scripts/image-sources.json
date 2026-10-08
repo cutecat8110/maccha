@@ -1,0 +1,77 @@
+[
+  {
+    "source": "public/img/decoration.png",
+    "target": "public/img/decoration.webp",
+    "lossless": true
+  },
+  {
+    "source": "public/img/enjoy01.jpg",
+    "target": "public/img/enjoy01.webp",
+    "lossless": false
+  },
+  {
+    "source": "public/img/enjoy02.jpg",
+    "target": "public/img/enjoy02.webp",
+    "lossless": false
+  },
+  {
+    "source": "public/img/enjoy03.jpg",
+    "target": "public/img/enjoy03.webp",
+    "lossless": false
+  },
+  {
+    "source": "public/img/hero.jpg",
+    "target": "public/img/hero.webp",
+    "lossless": false
+  },
+  {
+    "source": "public/img/lounge01.jpg",
+    "target": "public/img/lounge01.webp",
+    "lossless": false
+  },
+  {
+    "source": "public/img/lounge02.jpg",
+    "target": "public/img/lounge02.webp",
+    "lossless": false
+  },
+  {
+    "source": "public/img/news01.jpg",
+    "target": "public/img/news01.webp",
+    "lossless": false
+  },
+  {
+    "source": "public/img/news02.jpg",
+    "target": "public/img/news02.webp",
+    "lossless": false
+  },
+  {
+    "source": "public/img/news03.jpg",
+    "target": "public/img/news03.webp",
+    "lossless": false
+  },
+  {
+    "source": "public/img/news04.jpg",
+    "target": "public/img/news04.webp",
+    "lossless": false
+  },
+  {
+    "source": "public/img/story01.jpg",
+    "target": "public/img/story01.webp",
+    "lossless": false
+  },
+  {
+    "source": "public/img/story02.jpg",
+    "target": "public/img/story02.webp",
+    "lossless": false
+  },
+  {
+    "source": "public/img/story03.jpg",
+    "target": "public/img/story03.webp",
+    "lossless": false
+  },
+  {
+    "source": "public/img/story04.jpg",
+    "target": "public/img/story04.webp",
+    "lossless": false
+  }
+]
