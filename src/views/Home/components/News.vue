@@ -1,6 +1,6 @@
 <template>
   <section class="common-section-padding bg-system-dark text-white">
-    <div class="container relative flex flex-col gap-y-10 lg:px-[5.75rem]">
+    <div class="container relative flex flex-col gap-y-10 md:px-6 lg:px-[5.75rem]">
       <!-- 背景裝飾．竹狀 -->
       <SvgBamboo class="bamboo-r" />
 

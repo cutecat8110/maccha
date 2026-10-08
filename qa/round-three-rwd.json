@@ -1,0 +1,164 @@
+{
+  "date": "2026-10-08",
+  "environment": "Chrome 155 on macOS; viewport simulation, not physical devices",
+  "note": "Arrow bounds measured during viewport changes; AOS can still be transitioning. All visible arrow targets remained inside the viewport, and #app.scrollLeft remained zero.",
+  "results": [
+    {
+      "appScrollLeft": 0,
+      "arrows": [],
+      "documentWidth": 320,
+      "height": 568,
+      "swiperWidth": 0,
+      "width": 320
+    },
+    {
+      "appScrollLeft": 0,
+      "arrows": [],
+      "documentWidth": 375,
+      "height": 844,
+      "swiperWidth": 0,
+      "width": 375
+    },
+    {
+      "appScrollLeft": 0,
+      "arrows": [],
+      "documentWidth": 390,
+      "height": 844,
+      "swiperWidth": 0,
+      "width": 390
+    },
+    {
+      "appScrollLeft": 0,
+      "arrows": [
+        {
+          "label": "上一則消息",
+          "left": 8,
+          "right": 48
+        },
+        {
+          "label": "下一則消息",
+          "left": 720,
+          "right": 760
+        }
+      ],
+      "documentWidth": 768,
+      "height": 1024,
+      "swiperWidth": 672,
+      "width": 768
+    },
+    {
+      "appScrollLeft": 0,
+      "arrows": [
+        {
+          "label": "上一則消息",
+          "left": 8.5,
+          "right": 48.5
+        },
+        {
+          "label": "下一則消息",
+          "left": 720.5,
+          "right": 760.5
+        }
+      ],
+      "documentWidth": 769,
+      "height": 1024,
+      "swiperWidth": 672,
+      "width": 769
+    },
+    {
+      "appScrollLeft": 0,
+      "arrows": [
+        {
+          "label": "上一則消息",
+          "left": 46,
+          "right": 86
+        },
+        {
+          "label": "下一則消息",
+          "left": 758,
+          "right": 798
+        }
+      ],
+      "documentWidth": 844,
+      "height": 390,
+      "swiperWidth": 672,
+      "width": 844
+    },
+    {
+      "appScrollLeft": 0,
+      "arrows": [
+        {
+          "label": "上一則消息",
+          "left": 119.5,
+          "right": 159.5
+        },
+        {
+          "label": "下一則消息",
+          "left": 831.5,
+          "right": 871.5
+        }
+      ],
+      "documentWidth": 991,
+      "height": 768,
+      "swiperWidth": 672,
+      "width": 991
+    },
+    {
+      "appScrollLeft": 0,
+      "arrows": [
+        {
+          "label": "上一則消息",
+          "left": 69.00407409667969,
+          "right": 109.00407409667967
+        },
+        {
+          "label": "下一則消息",
+          "left": 885.0040893554688,
+          "right": 925.0040893554688
+        }
+      ],
+      "documentWidth": 992,
+      "height": 768,
+      "swiperWidth": 776,
+      "width": 992
+    },
+    {
+      "appScrollLeft": 0,
+      "arrows": [
+        {
+          "label": "上一則消息",
+          "left": 91.42689514160156,
+          "right": 131.42689514160156
+        },
+        {
+          "label": "下一則消息",
+          "left": 907.4268798828124,
+          "right": 947.4268798828124
+        }
+      ],
+      "documentWidth": 1024,
+      "height": 768,
+      "swiperWidth": 776,
+      "width": 1024
+    },
+    {
+      "appScrollLeft": 0,
+      "arrows": [
+        {
+          "label": "上一則消息",
+          "left": 126.0881118774414,
+          "right": 166.08810424804688
+        },
+        {
+          "label": "下一則消息",
+          "left": 1302.088134765625,
+          "right": 1342.088134765625
+        }
+      ],
+      "documentWidth": 1440,
+      "height": 900,
+      "swiperWidth": 1136,
+      "width": 1440
+    }
+  ]
+}
