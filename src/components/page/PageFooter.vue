@@ -3,9 +3,9 @@
     <div class="container flex flex-col gap-y-10 lg:flex-row lg:justify-between">
       <div class="flex flex-col items-center gap-y-10 lg:items-start">
         <!-- LOGO．連結．首頁 -->
-        <router-link class="link-base" to="/" aria-label="MACCHA 首頁" @click="refreshPage">
+        <a class="link-base" :href="homeUrl" aria-label="MACCHA 首頁">
           <SvgLogo class="text-logo-2 lg:text-logo" />
-        </router-link>
+        </a>
 
         <div class="flex w-full flex-col gap-6 lg:flex-row lg:px-0">
           <!-- 聯絡我們 -->
@@ -71,17 +71,8 @@
 </template>
 
 <script lang="ts" setup>
-/* Logo 刷新 */
-const route = useRoute()
-const router = useRouter()
-const refreshPage = (event: MouseEvent) => {
-  if (route.path === '/') {
-    // 禁止默認行為
-    event.preventDefault()
-    // 刷新頁面
-    router.go(0)
-  }
-}
+const homeUrl = import.meta.env.BASE_URL
+
 </script>
 
 <style lang="scss" scoped>

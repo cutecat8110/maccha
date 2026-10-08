@@ -19,6 +19,8 @@
 
 Swiper 12.1.2 是此公告的修補版本，停用新增箭頭圖示以保留原造型：[官方安全公告](https://github.com/nolimits4web/swiper/security/advisories/GHSA-hmx5-qpq5-p643)、[Swiper API](https://swiperjs.com/swiper-api)。
 
+線上發布回歸另發現並修正 M-10：在 `#menu` 等錨點頁按頁首／頁尾 Logo，原 `router.go(0)` 會保留錨點，修正定位後又回到原章節。Logo 改為原生首頁連結，保留完整重新載入並清除錨點；另行驗證兩個 Logo 回首頁。
+
 ## 兩輪驗證
 
 - 環境：macOS、Chrome 155、Node 22.23.3；手機尺寸均為桌面 viewport 模擬，未做真機測試。

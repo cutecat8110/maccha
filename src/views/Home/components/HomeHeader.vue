@@ -2,9 +2,9 @@
   <header :class="['header', isDark && 'is-dark']">
     <div class="container relative flex items-center justify-between py-3 lg:py-5">
       <!-- LOGO．連結．首頁 -->
-      <router-link class="link-base" to="/" aria-label="MACCHA 首頁" @click="refreshPage">
+      <a class="link-base" :href="homeUrl" aria-label="MACCHA 首頁">
         <SvgLogo class="text-icon lg:text-logo-2" />
-      </router-link>
+      </a>
 
       <!-- desktop．導航欄 -->
       <nav class="hidden gap-x-2 lg:flex">
@@ -134,17 +134,7 @@
 <script lang="ts" setup>
 import { useWindowScroll, useWindowSize } from '@vueuse/core'
 
-/* Logo 刷新 */
-const route = useRoute()
-const router = useRouter()
-const refreshPage = (event: MouseEvent) => {
-  if (route.path === '/') {
-    // 禁止默認行為
-    event.preventDefault()
-    // 刷新頁面
-    router.go(0)
-  }
-}
+const homeUrl = import.meta.env.BASE_URL
 
 /* 滾輪進入區塊 */
 const activeSection = ref('')
