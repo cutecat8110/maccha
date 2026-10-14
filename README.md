@@ -29,8 +29,8 @@ npm run build
 npm run preview -- --host 127.0.0.1
 ```
 
-- 網站使用 `/maccha/` 路徑，正式產物輸出至 `docs/`；GitHub Pages 使用 `portfolio/qa` 分支的 `/docs`。
-- 原版提交為 `c7d29ef3f163b28b0647f45fca629e2937fcc8c5`。需要回復時，可將 Pages 來源改回 `main`、`/docs`。
+- 網站使用 `/maccha/` 路徑，正式產物輸出至 `docs/`；GitHub Pages 使用 `main` 分支的 `/docs`。
+- 原版提交為 `c7d29ef3f163b28b0647f45fca629e2937fcc8c5`。需要回復時，將所需版本的 `docs/` 以新提交恢復至 `main`，Pages 維持 `main`、`/docs`。
 - `VITE_API_KEY` 為 Google Maps **瀏覽器用** API key，會進入公開產物；應在 Google Cloud 限制網站來源與可使用的 API。不要在任何 `VITE_*` 變數放入伺服器秘密。現有地圖設定沿用，沒有更動帳務或配額。
 - 本機可用 `.env.local` 覆寫地圖設定；未設定 key 或 SDK 載入失敗時提供位置連結。測試會 mock 地圖 SDK，不呼叫 Google API。
 - 聯絡表單原本只驗證輸入並關閉，沒有寄信、訂位或後端儲存；新聞卡片與 VIEW ALL 也保留原有展示行為。
