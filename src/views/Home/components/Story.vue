@@ -16,7 +16,7 @@
           <!-- 內容組合 1 -->
           <article class="story-content">
             <!-- 圖片 -->
-            <div class="aspect-square md:order-last" data-aos="fade">
+            <div class="aspect-square w-full md:order-last" data-aos="fade">
               <img loading="lazy" decoding="async" class="story-img" src="/img/story01.webp" alt="抹茶粉、竹製刷子和抹茶茶碗" />
             </div>
 
@@ -34,7 +34,7 @@
           <!-- 內容組合 2 -->
           <article class="story-content">
             <!-- 圖片 -->
-            <div class="aspect-square" data-aos="fade">
+            <div class="aspect-square w-full" data-aos="fade">
               <img loading="lazy" decoding="async" class="story-img" src="/img/story02.webp" alt="一盤抹茶粉、盛滿抹茶粉的湯杓" />
             </div>
 
@@ -108,7 +108,7 @@
           <!-- 內容組合 3 -->
           <article class="story-content">
             <!-- 圖片 -->
-            <div class="aspect-square" data-aos="fade">
+            <div class="aspect-square w-full" data-aos="fade">
               <img loading="lazy" decoding="async" class="story-img" src="/img/story03.webp" alt="抹茶茶園" />
             </div>
 
@@ -144,7 +144,7 @@
           <!-- 內容組合 4 -->
           <article class="story-content">
             <!-- 圖片 -->
-            <div class="aspect-square md:order-last" data-aos="fade">
+            <div class="aspect-square w-full md:order-last" data-aos="fade">
               <img loading="lazy" decoding="async" class="story-img" src="/img/story04.webp" alt="抹茶茶園" />
             </div>
 
