@@ -18,7 +18,7 @@
           <SvgClose class="text-icon-close" />
         </UiButton>
       </template>
-    <div class="flex min-h-full items-center py-20 text-white">
+    <div class="flex min-h-full items-center pb-20 pt-4 text-white">
 
       <VForm v-slot="{ errors, validate }" as="">
         <form class="w-full" @submit="submitForm($event, validate)">
@@ -269,7 +269,9 @@ const submitForm = async (event: Event, validate: () => Promise<{ valid: boolean
         .to(elem, { x: 4, duration: 0.1 })
       animations.set(i, animation)
     })
-    document.getElementById(Object.keys(result.errors)[0])?.focus()
+    const firstInvalidField = document.getElementById(Object.keys(result.errors)[0])
+    firstInvalidField?.focus({ preventScroll: true })
+    firstInvalidField?.scrollIntoView?.({ block: 'center' })
   } else {
     toggleContactUs(false)
   }
@@ -345,11 +347,11 @@ const shopOptions = ref(['本店', '文創店'])
   }
 
   .error-message {
-    @apply absolute -top-[1.125rem] right-0 block text-end text-tiny font-bold text-system-danger-600;
+    @apply absolute -top-[1.125rem] right-0 block text-end text-tiny font-bold text-system-danger-200;
   }
 
   .required {
-    @apply mt-1 text-sub-title text-system-danger-600;
+    @apply mt-1 text-sub-title text-system-danger-200;
   }
 }
 </style>

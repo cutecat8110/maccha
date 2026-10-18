@@ -12,7 +12,10 @@
         class="fixed inset-0 z-[60] bg-system-dark/60 outline-none backdrop-blur-xl"
         @keydown="onKeydown"
       >
-        <div class="absolute inset-0 overflow-y-auto overflow-x-hidden overscroll-contain">
+        <div
+          class="absolute inset-x-0 bottom-0 overflow-y-auto overflow-x-hidden overscroll-contain"
+          :class="$slots.close ? 'top-16' : 'top-0'"
+        >
           <slot />
         </div>
         <slot name="close" />

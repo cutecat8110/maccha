@@ -119,6 +119,7 @@ export default {
             50: '#E2DCC1'
           },
           danger: {
+            200: '#F0A4A3',
             600: '#AB3B3A'
           },
           gray: {
