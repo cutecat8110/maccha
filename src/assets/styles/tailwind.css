@@ -7,6 +7,24 @@
 
 @tailwind utilities;
 
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0s !important;
+  }
+  [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+  }
+  [data-aos='border'] > .line:nth-of-type(odd) { height: 100%; }
+  [data-aos='border'] > .line:nth-of-type(even),
+  [data-aos='border-2'] > .line { width: 100%; }
+}
+
 @layer base {
   @font-face {
     font-family: 'Noto Serif TC Full';

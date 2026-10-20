@@ -17,6 +17,7 @@
         :modules="[Navigation, A11y]"
         :navigation="{ nextEl: '.nextEl', prevEl: '.prevEl', addIcons: false }"
         :slides-per-view="slidesView"
+        :speed="reducedMotion === 'reduce' ? 0 : 300"
         :space-between="40"
         :a11y="{ prevSlideMessage: '上一則消息', nextSlideMessage: '下一則消息' }"
       >
@@ -62,7 +63,7 @@
 
 <script lang="ts" setup>
 import SvgArrow from '@/components/svg/SvgArrow.vue'
-import { useWindowSize } from '@vueuse/core'
+import { usePreferredReducedMotion, useWindowSize } from '@vueuse/core'
 import { Navigation, A11y } from 'swiper/modules'
 import NewsCard from './NewsCard.vue'
 
@@ -100,6 +101,7 @@ const newsList = ref([
 
 /* 輪播 RWD 數量 */
 const { width } = useWindowSize()
+const reducedMotion = usePreferredReducedMotion()
 const slidesView = computed(() => {
   return width.value >= 992 ? 3 : 2
 })

@@ -28,6 +28,7 @@
             delay: 5000
           }"
           :effect="'fade'"
+          :speed="reducedMotion === 'reduce' ? 0 : 300"
           :loop="true"
           :prevent-interaction-on-transition="true"
           :modules="[Autoplay, EffectFade, Pagination, A11y]"
@@ -68,6 +69,8 @@
 <script lang="ts" setup>
 import { Autoplay, EffectFade, Pagination, A11y } from 'swiper/modules'
 import type { Swiper } from 'swiper/types'
+import { usePreferredReducedMotion } from '@vueuse/core'
+const reducedMotion = usePreferredReducedMotion()
 const enjoyList = ref([
   {
     src: '/maccha/img/enjoy01.webp',
@@ -91,7 +94,14 @@ const enjoySwiperRefs = shallowRef<null | Swiper>(null)
 const onSwiper = (swiper: Swiper) => {
   enjoySwiperRefs.value = swiper
   currentIndex.value = swiper.realIndex
+  if (reducedMotion.value === 'reduce') swiper.autoplay.stop()
 }
+watch(reducedMotion, (preference) => {
+  const swiper = enjoySwiperRefs.value
+  if (!swiper || swiper.destroyed) return
+  if (preference === 'reduce') swiper.autoplay.stop()
+  else swiper.autoplay.start()
+})
 
 /* 當前輪播 */
 const currentIndex = ref(0)

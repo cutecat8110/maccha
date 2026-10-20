@@ -13,13 +13,14 @@
 </template>
 
 <script lang="ts" setup>
-import { useWindowScroll, useWindowSize } from '@vueuse/core'
+import { usePreferredReducedMotion, useWindowScroll, useWindowSize } from '@vueuse/core'
 
 /* 至頂 */
 const { height } = useWindowSize()
-const { y } = useWindowScroll({ behavior: 'smooth' })
+const reducedMotion = usePreferredReducedMotion()
+const { y } = useWindowScroll()
 const scrollTop = () => {
-  y.value = 0
+  window.scrollTo({ top: 0, behavior: reducedMotion.value === 'reduce' ? 'auto' : 'smooth' })
 }
 
 // 至頂: 按鈕顯示

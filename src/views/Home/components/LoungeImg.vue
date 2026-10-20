@@ -10,6 +10,7 @@
           width: `${imgWidth}px`,
           backgroundImage: isNear ? `url(${props.image})` : undefined,
           backgroundPositionX: `${positionX[index]}`,
+          backgroundPositionY: '-40px',
           backgroundSize: `auto ${height + 80}px`
         }"
       />
@@ -40,8 +41,7 @@ const isNear = ref(false)
 const { stop } = useIntersectionObserver(imgWrapperRefs, (entries) => {
   if (entries.some((entry) => entry.isIntersecting)) { isNear.value = true; stop() }
 }, { rootMargin: '600px' })
-const animations: gsap.core.Tween[] = []
-let refreshFrame = 0
+let motion: gsap.MatchMedia | undefined
 
 /* 圖片 1/3 寬 */
 const imgWidth = computed(() => {
@@ -69,33 +69,36 @@ const elements = ref<
 ])
 
 onMounted(() => {
-  elements.value.forEach((element) => {
-    if (element.selector) {
-      animations.push(gsap.fromTo(
-        element.selector,
-        {
-          backgroundPositionY: `${(element.initialY + 40) * -1}px`,
-          y: element.initialY
-        },
-        {
-          backgroundPositionY: `${(element.targetY + 40) * -1}px`,
-          y: element.targetY,
-          ease: 'power1.inOut',
-          scrollTrigger: {
-            trigger: element.selector,
-            start: 'top bottom',
-            end: 'bottom top',
-            scrub: 1.7
+  motion = gsap.matchMedia()
+  motion.add('(prefers-reduced-motion: no-preference)', () => {
+    elements.value.forEach((element) => {
+      if (element.selector) {
+        gsap.fromTo(
+          element.selector,
+          {
+            backgroundPositionY: `${(element.initialY + 40) * -1}px`,
+            y: element.initialY
+          },
+          {
+            backgroundPositionY: `${(element.targetY + 40) * -1}px`,
+            y: element.targetY,
+            ease: 'power1.inOut',
+            scrollTrigger: {
+              trigger: element.selector,
+              start: 'top bottom',
+              end: 'bottom top',
+              scrub: 1.7
+            }
           }
-        }
-      ))
-    }
-  })
+        )
+      }
+    })
 
-  refreshFrame = requestAnimationFrame(() => ScrollTrigger.refresh())
+    const refreshFrame = requestAnimationFrame(() => ScrollTrigger.refresh())
+    return () => cancelAnimationFrame(refreshFrame)
+  })
 })
 onBeforeUnmount(() => {
-  cancelAnimationFrame(refreshFrame)
-  animations.forEach((animation) => { animation.scrollTrigger?.kill(); animation.kill() })
+  motion?.revert()
 })
 </script>
